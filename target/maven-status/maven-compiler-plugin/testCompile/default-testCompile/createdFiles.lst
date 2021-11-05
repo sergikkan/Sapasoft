@@ -1,0 +1,11 @@
+sapasoft\adm\pages\Adm.class
+sapasoft\adm\pages\RolesGroupsManagmentPage.class
+sapasoft\adm\RolesManagment.class
+sapasoft\adm\UsersManagment.class
+sapasoft\adm\pages\RightsManagment.class
+sapasoft\adm\testconfigs\BaseSetings.class
+sapasoft\adm\RightsMangmentTest.class
+sapasoft\adm\pages\Auth.class
+sapasoft\adm\pages\RolesManagment.class
+sapasoft\adm\pages\UsersManagmentPage.class
+sapasoft\adm\RolesGroupsManagment.class
