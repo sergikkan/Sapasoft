@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: sapasoft.adm.RightsMangmentTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 81.451 s - in sapasoft.adm.RightsMangmentTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 82.964 s - in sapasoft.adm.RightsMangmentTest

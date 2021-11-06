@@ -2,6 +2,7 @@ package sapasoft.adm;
 
 import com.codeborne.selenide.junit.TextReport;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Before;
@@ -21,13 +22,10 @@ import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-
+@DisplayName("Раздел \"Управление правами\"")
 public class RightsMangmentTest extends BaseSetings {
 
-  @Before
-  public void setUp() {
-    SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-  }
+
 
   /*Тестовые данные*/
 
@@ -47,6 +45,7 @@ public class RightsMangmentTest extends BaseSetings {
 
   // Создание нового права
   // @Test
+  //@DisplayName("Создание нового права")
   public void t1CreateNewRight(){
     Adm adm =new Adm();
     adm.logIn(login, password);
@@ -64,6 +63,7 @@ public class RightsMangmentTest extends BaseSetings {
 
   //Деактивация права
   @Test
+  @DisplayName("Деактивация права")
   public void t2DeactivationRight(){
     Adm adm =new Adm();
     adm.logIn(login, password);
@@ -79,11 +79,12 @@ public class RightsMangmentTest extends BaseSetings {
 
   //Активация права
   @Test
+  @DisplayName("Активация права")
   public void t3ActivationRight(){
     Adm adm =new Adm();
     adm.logIn(login, password);
     adm.rightsManagment().open();
-    //adm.rightsManagment().openRight();
+
     adm.rightsManagment().extendedSearch();
     adm.rightsManagment().fillSearchStatus("Неактивна"); // Ищем права со статусом Неактивна
     adm.rightsManagment().applySearch();
@@ -95,7 +96,9 @@ public class RightsMangmentTest extends BaseSetings {
 
   //Поиск права
   @Test
+  @DisplayName("Поиск права")
   public void t4SearchRight(){
+
     Adm adm =new Adm();
     adm.logIn(login, password);
     adm.rightsManagment().open();
@@ -104,7 +107,8 @@ public class RightsMangmentTest extends BaseSetings {
   }
 
   //Расширенный поиск
-  //@Test
+  @Test
+  @DisplayName("Расширенный поиск права")
   public void t5ExtendedSearchRight(){
     Adm adm =new Adm();
     adm.logIn(login, password);
@@ -120,7 +124,8 @@ public class RightsMangmentTest extends BaseSetings {
   }
 
   // Редактирование права
-  //@Test
+  @Test
+  @DisplayName("Редактирование права")
   public void t6EditRight(){
     Adm adm =new Adm();
     adm.logIn(login, password);
@@ -137,7 +142,8 @@ public class RightsMangmentTest extends BaseSetings {
     adm.logOut();
   }
 
-  //@Test
+  @Test
+  @DisplayName("Проверка уникальных полей")
   public void t7CheckUniqueFields(){
     Adm adm =new Adm();
     adm.logIn(login, password);
@@ -146,7 +152,6 @@ public class RightsMangmentTest extends BaseSetings {
     adm.rightsManagment().chooseModule("Кабинет налогоплательщика");
     adm.rightsManagment().fillCode(existCode);
     adm.rightsManagment().fillNames(rusName, engName);
-//      adm.rightsManagment().synchronizeKNP();
     adm.rightsManagment().create();
     adm.rightsManagment().checkThatCodeExist();
     adm.rightsManagment().fillCode(code);

@@ -1,11 +1,14 @@
 package sapasoft.adm;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 import sapasoft.adm.pages.Adm;
 import sapasoft.adm.testconfigs.BaseSetings;
 
-public class RolesManagment extends BaseSetings {
+
+@DisplayName("Раздел \"Управление ролями\"")
+public class RolesManagmentTest extends BaseSetings {
 
 
     /*Тестовые данные*/
@@ -18,7 +21,7 @@ public class RolesManagment extends BaseSetings {
     private String newRolesEngName="Role "+RandomStringUtils.randomAlphabetic(5); //Наименование на латинице при редактировании
     private String level = "ДГД";  //Значение уровня при создании
     private String newLevel = "КГД";  //Значение уровня редактировании
-    private String dateFrom=  "01.11.2021"; // Дата при создании
+    private String dateFrom=  "06.11.2021"; // Дата при создании
     private String existRolesRusName="Тестовая роль КНП два"; //Наименование существующей роли
     private String existRolesEngName="Test role KNP "; //Наименование существующей роли
     private String existRolesModule="Кабинет налогоплательщика"; //Модуль существующей роли, нужен для поиска и для того чтобы сформировать существующий код
@@ -28,7 +31,8 @@ public class RolesManagment extends BaseSetings {
 
 
 
-    @Test
+    //@Test
+    //@DisplayName("Создание роли")
     public void t1CreateNewRole() {
         Adm adm = new Adm();
         adm.logIn(login, password);
@@ -47,6 +51,7 @@ public class RolesManagment extends BaseSetings {
     }
 
     @Test
+    @DisplayName("Деактивация роли")
     public void t2DeactivateRole() {
         Adm adm = new Adm();
         adm.logIn(login, password);
@@ -62,6 +67,7 @@ public class RolesManagment extends BaseSetings {
     }
 
     @Test
+    @DisplayName("Активация роли")
     public void t3ActivateRole() {
         Adm adm = new Adm();
         adm.logIn(login, password);
@@ -78,6 +84,7 @@ public class RolesManagment extends BaseSetings {
 
     //Поиск роли
     @Test
+    @DisplayName("Поиск роли")
     public void t4SearchRole(){
         Adm adm =new Adm();
         adm.logIn(login, password);
@@ -87,6 +94,7 @@ public class RolesManagment extends BaseSetings {
     }
 
     @Test
+    @DisplayName("Расширенный поиск роли")
     public void t5ExtendedSearchRole(){
         Adm adm =new Adm();
         adm.logIn(login, password);
@@ -102,6 +110,7 @@ public class RolesManagment extends BaseSetings {
     }
 
     @Test
+    @DisplayName("Просмотр информации о роли")
     public void t6OpenRoleInformation() {
         Adm adm = new Adm();
         adm.logIn(login, password);
@@ -115,6 +124,7 @@ public class RolesManagment extends BaseSetings {
     }
 
     @Test
+    @DisplayName("Редактирование роли")
     public void t6EditRole(){
         Adm adm =new Adm();
         adm.logIn(login, password);
@@ -134,6 +144,7 @@ public class RolesManagment extends BaseSetings {
     }
 
     @Test
+    @DisplayName("Проверка уникальных полей при создании роли")
     public void t7CheckUniqueFields() {
         Adm adm = new Adm();
         adm.logIn(login, password);

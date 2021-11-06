@@ -1,12 +1,20 @@
 package sapasoft.adm.testconfigs;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.Before;
 
 import java.util.Random;
 
 public class BaseSetings {
     protected String login= "admin";
     protected String password= "admin";
+
+    @Before
+    public void setUp() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+    }
 
     {
         Configuration.baseUrl = "https://arm.sapasoft.kz";

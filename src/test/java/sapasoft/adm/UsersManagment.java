@@ -6,7 +6,7 @@ import sapasoft.adm.testconfigs.BaseSetings;
 
 public class UsersManagment extends BaseSetings {
 
-    @Test
+    //@Test
     public void t1BlockUser(){
         Adm adm= new Adm();
         adm.logIn(login, password);
