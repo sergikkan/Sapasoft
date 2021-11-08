@@ -5,6 +5,9 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.Before;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class BaseSetings {
@@ -38,4 +41,11 @@ public class BaseSetings {
         }
         return str;
     }
+
+    protected static String date(){
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
 }

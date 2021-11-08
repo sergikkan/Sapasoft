@@ -1,10 +1,15 @@
 package sapasoft.adm;
 
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 import sapasoft.adm.pages.Adm;
 import sapasoft.adm.testconfigs.BaseSetings;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 @DisplayName("Раздел \"Управление ролями\"")
@@ -21,7 +26,7 @@ public class RolesManagmentTest extends BaseSetings {
     private String newRolesEngName="Role "+RandomStringUtils.randomAlphabetic(5); //Наименование на латинице при редактировании
     private String level = "ДГД";  //Значение уровня при создании
     private String newLevel = "КГД";  //Значение уровня редактировании
-    private String dateFrom=  "06.11.2021"; // Дата при создании
+    private String dateFrom=  date(); // Дата при создании
     private String existRolesRusName="Тестовая роль КНП два"; //Наименование существующей роли
     private String existRolesEngName="Test role KNP "; //Наименование существующей роли
     private String existRolesModule="Кабинет налогоплательщика"; //Модуль существующей роли, нужен для поиска и для того чтобы сформировать существующий код
@@ -31,8 +36,9 @@ public class RolesManagmentTest extends BaseSetings {
 
 
 
-    //@Test
-    //@DisplayName("Создание роли")
+
+    @Test
+    @DisplayName("Создание роли")
     public void t1CreateNewRole() {
         Adm adm = new Adm();
         adm.logIn(login, password);
@@ -47,12 +53,13 @@ public class RolesManagmentTest extends BaseSetings {
         adm.rolesManagment().create();
         adm.rolesManagment().checkRoleWasCreated(rolesRusName);
         adm.logOut();
-        //Configuration.holdBrowserOpen = true;
+
     }
 
     @Test
     @DisplayName("Деактивация роли")
     public void t2DeactivateRole() {
+
         Adm adm = new Adm();
         adm.logIn(login, password);
         adm.rolesManagment().open();
@@ -62,6 +69,7 @@ public class RolesManagmentTest extends BaseSetings {
         adm.rolesManagment().checkSearchStatus("Активна");
         adm.rolesManagment().openRole();
         adm.rolesManagment().deactivateRole();
+        adm.rolesManagment().checkThatRoleDeactivated();
         adm.logOut();
         //Configuration.holdBrowserOpen = true;
     }
@@ -78,6 +86,7 @@ public class RolesManagmentTest extends BaseSetings {
         adm.rolesManagment().checkSearchStatus("Неактивна");
         adm.rolesManagment().openRole();
         adm.rolesManagment().activateRole();
+        adm.rolesManagment().checkThatRoleActivated();
         adm.logOut();
         //Configuration.holdBrowserOpen = true;
     }
@@ -157,13 +166,26 @@ public class RolesManagmentTest extends BaseSetings {
         adm.rolesManagment().fillNames(rolesRusName, rolesEngName);
         adm.rolesManagment().chooseRights();
         adm.rolesManagment().create();
-        //adm.rolesManagment().checkThatCodeExist();
+        adm.rolesManagment().checkThatCodeExist();
         adm.rolesManagment().fillCode(rolesCode);
         adm.rolesManagment().fillNames(existRolesRusName, existRolesEngName);
         adm.rolesManagment().create();
-        //adm.rolesManagment().checkThatNamesExist();
+        adm.rolesManagment().checkThatNamesExist();
         adm.rolesManagment().cancel();
         adm.logOut();
-        //Configuration.holdBrowserOpen = true;
+       //  Configuration.holdBrowserOpen = true;
     }
+
+    @Test
+    @DisplayName("Проверка обязательных  полей при создании роли")
+    public void t8CheckRequiredFields() {
+        Adm adm = new Adm();
+        adm.logIn(login, password);
+        adm.rolesManagment().open();
+        adm.rolesManagment().createNewRole();
+        adm.rolesManagment().create();
+        adm.rolesManagment().checkThatButtonDisabled();
+
+    }
+
 }

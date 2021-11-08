@@ -32,8 +32,9 @@ public class RolesManagment {
     public void fillNames(String rusName, String engName){
         $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
-        $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).setValue(rusName);
         $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
+        $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).setValue(rusName);
+
         $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).setValue(rusName);
         $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).setValue(engName);
     }
@@ -124,20 +125,34 @@ public class RolesManagment {
 
 
     // Кнопка деактивировать роль
-    @Step("Кнопка деактивировать роль")
+    @Step("Нажать на кнопку деактивировать роль")
     public void deactivateRole(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]//span[text()=\"Деактивировать\"]")).click();
-        $(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
+        //$(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
+        //$(byText("Роль успешно деактивирована")).shouldBe(visible);
+    }
+
+    @Step("Проверить, что роль деактивирована")
+    public void checkThatRoleDeactivated(){
+
         $(byText("Роль успешно деактивирована")).shouldBe(visible);
     }
 
+
     // Кнопка активировать роль
-    @Step("Кнопка активировать роль")
+    @Step("Нажать на кнопку активировать роль")
     public void activateRole(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]//span[text()=\"Активировать\"]")).click();
         $(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
+
+    }
+
+    @Step("Проверить, что роль активирована")
+    public void checkThatRoleActivated(){
+
         $(byText("Роль успешно активирована")).shouldBe(visible);
     }
+
 
     @Step("Открыть пункт Пользователи в карточке пользователя")
     public void openRoleUsers() {
@@ -177,7 +192,14 @@ public class RolesManagment {
     }
     public void checkThatNamesExist(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldBe(visible);
-        $(byText("Роль с таким наименованием уже существует в системе")).shouldBe(visible);
+        $(byText("Роль с таким названием уже существует в системе")).shouldBe(visible);
+    }
+
+
+    //Кнопка создать неактивна
+    @Step("Проверка, что кнопка Создать неактивна")
+    public void checkThatButtonDisabled(){
+        $(By.xpath("//button[@class=\"ant-btn administration__button-blue\"]")).shouldBe(disabled);
     }
 
 
@@ -220,6 +242,13 @@ public class RolesManagment {
         $(By.xpath("//span[@title=\""+searchModule+"\"]")).shouldBe(visible);
     }
 
+    // Выбрать значение модуля в поиске
+    @Step("Выбрать значение уровня в поиске")
+    public void chooseSearchLevel(String searchlevel){
+        $(By.xpath("//label[text()=\"Уровень\"]/../..//input/../..")).click();
+        $(By.xpath("//div[@title=\""+searchlevel+"\"]")).click();
+    }
+
     // Кнопка Применить
     @Step("Нажать на кнопку применить в поиске")
     public void applySearch(){
@@ -237,6 +266,8 @@ public class RolesManagment {
     public void checkSearchStatus(String searchStatus) {
         $(By.xpath("//tbody/tr[2]/td[7]")).shouldHave(exactText(searchStatus));
     }
+
+
 
     // Проверка, что значение модуля соответствует значению в поиске
     @Step("Проверка, что значение модуля соответствует значению в поиске")
