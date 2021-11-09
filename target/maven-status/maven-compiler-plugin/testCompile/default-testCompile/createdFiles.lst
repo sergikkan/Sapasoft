@@ -4,6 +4,7 @@ sapasoft\adm\UsersManagment.class
 sapasoft\adm\pages\RightsManagment.class
 sapasoft\adm\RolesManagmentTest.class
 sapasoft\adm\testconfigs\BaseSetings.class
+sapasoft\adm\RolesGroupsManagmentTest.class
 sapasoft\adm\RightsMangmentTest.class
 sapasoft\adm\pages\Auth.class
 sapasoft\adm\pages\RolesManagment.class

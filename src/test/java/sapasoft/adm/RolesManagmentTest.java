@@ -3,7 +3,9 @@ package sapasoft.adm;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang.RandomStringUtils;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
 import sapasoft.adm.testconfigs.BaseSetings;
 
@@ -11,7 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел \"Управление ролями\"")
 public class RolesManagmentTest extends BaseSetings {
 
@@ -31,6 +33,7 @@ public class RolesManagmentTest extends BaseSetings {
     private String existRolesEngName="Test role KNP "; //Наименование существующей роли
     private String existRolesModule="Кабинет налогоплательщика"; //Модуль существующей роли, нужен для поиска и для того чтобы сформировать существующий код
     private String existCode="7776"; //Существующий код для проверки уникальности при создании
+    private String searchLevel="КГД"; //Существующий уровень для проверки уникальности при создании
     private String searchStatus = "Неактивна"; //Значение статуса в расширенном поиске
 
 
@@ -111,9 +114,11 @@ public class RolesManagmentTest extends BaseSetings {
         adm.rolesManagment().extendedSearch();
         adm.rolesManagment().chooseSearchModule(existRolesModule);
         adm.rolesManagment().fillSearchStatus(searchStatus);
+        adm.rolesManagment().chooseSearchLevel(searchLevel);
         adm.rolesManagment().applySearch();
         adm.rolesManagment().checkSearchModule(existRolesModule);
         adm.rolesManagment().checkSearchStatus(searchStatus);
+        adm.rolesManagment().checkLevel(searchLevel);
         adm.logOut();
         //Configuration.holdBrowserOpen = true;
     }
@@ -183,7 +188,6 @@ public class RolesManagmentTest extends BaseSetings {
         adm.logIn(login, password);
         adm.rolesManagment().open();
         adm.rolesManagment().createNewRole();
-        adm.rolesManagment().create();
         adm.rolesManagment().checkThatButtonDisabled();
 
     }

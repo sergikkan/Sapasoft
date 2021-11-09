@@ -128,7 +128,7 @@ public class RolesManagment {
     @Step("Нажать на кнопку деактивировать роль")
     public void deactivateRole(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]//span[text()=\"Деактивировать\"]")).click();
-        //$(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
+        $(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
         //$(byText("Роль успешно деактивирована")).shouldBe(visible);
     }
 
@@ -173,7 +173,7 @@ public class RolesManagment {
         $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldNotBe(visible);
     }
 
-    @Step("Проверка что уровент соответствует заданому параметру")
+    @Step("Проверка что уровень соответствует заданому параметру")
     public void checkLevel(String level){
         if(level == "УГД"){
             $(By.xpath("//tbody/tr[2]/td[4]")).shouldHave(text("UGD"));
@@ -186,10 +186,13 @@ public class RolesManagment {
         }
     }
 
+    @Step("Проверка что код уже зарегистрирован в системе")
     public void checkThatCodeExist(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldBe(visible);
         $(byText("Роль с таким кодом уже существует в системе")).shouldBe(visible);
     }
+
+    @Step("Проверка того, что такое наименование уже существует в системе")
     public void checkThatNamesExist(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldBe(visible);
         $(byText("Роль с таким названием уже существует в системе")).shouldBe(visible);
