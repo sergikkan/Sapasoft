@@ -40,8 +40,8 @@ public class RolesManagmentTest extends BaseSetings {
 
 
 
-    @Test
-    @DisplayName("Создание роли")
+   // @Test
+   // @DisplayName("Создание роли")
     public void t1CreateNewRole() {
         Adm adm = new Adm();
         adm.logIn(login, password);
@@ -139,7 +139,7 @@ public class RolesManagmentTest extends BaseSetings {
 
     @Test
     @DisplayName("Редактирование роли")
-    public void t6EditRole(){
+    public void t7EditRole(){
         Adm adm =new Adm();
         adm.logIn(login, password);
         adm.rolesManagment().open();

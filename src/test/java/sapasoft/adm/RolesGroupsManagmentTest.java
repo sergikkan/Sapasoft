@@ -29,8 +29,8 @@ public class RolesGroupsManagmentTest extends BaseSetings {
 
 
 
-    @Test
-    @DisplayName("Создание новой группы ролей")
+   // @Test
+    //@DisplayName("Создание новой группы ролей")
     public void t1CreateRolesGroup(){
         Adm adm = new Adm();
         adm.logIn(login, password);
@@ -128,7 +128,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
 
     @Test
     @DisplayName("Редактирование группы ролей")
-    public void t6EditRolesGroup(){
+    public void t7EditRolesGroup(){
         Adm adm =new Adm();
         adm.logIn(login, password);
         adm.rolesGroupsManagment().open();
@@ -146,7 +146,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
 
     @Test
     @DisplayName("Проверка уникальных полей при создании группы ролей")
-    public void t7CheckUniqueFields() {
+    public void t8CheckUniqueFields() {
         Adm adm = new Adm();
         adm.logIn(login, password);
         adm.rolesGroupsManagment().open();
@@ -164,25 +164,9 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         adm.rolesGroupsManagment().fillNames(existRolesGroupRusName, rolesGroupEngName);
         adm.rolesGroupsManagment().create();
         adm.rolesGroupsManagment().checkThatCodeNameExist(existRolesGroupRusName);
+        adm.rolesGroupsManagment().cancel();
+        adm.logOut();
 
-
-
-
-//        adm.rolesGroupsManagment().chooseModule(existRolesModule);
-//        adm.rolesManagment().fillCode(existCode);
-//        adm.rolesManagment().chooseLevel(level);
-//        adm.rolesManagment().chooseDate(dateFrom);
-//        adm.rolesManagment().fillNames(rolesRusName, rolesEngName);
-//        adm.rolesManagment().chooseRights();
-//        adm.rolesManagment().create();
-//        adm.rolesManagment().checkThatCodeExist();
-//        adm.rolesManagment().fillCode(rolesCode);
-//        adm.rolesManagment().fillNames(existRolesRusName, existRolesEngName);
-//        adm.rolesManagment().create();
-//        adm.rolesManagment().checkThatNamesExist();
-//        adm.rolesManagment().cancel();
-       // adm.logOut();
-         Configuration.holdBrowserOpen = true;
     }
 
 

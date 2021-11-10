@@ -29,4 +29,9 @@ public class Adm {
         UsersManagmentPage usersManagmentPage = new UsersManagmentPage();
         return usersManagmentPage;
     }
+
+    public ApplicationManagementPage applicationManagement(){
+        ApplicationManagementPage applicationManagementPage = new ApplicationManagementPage();
+        return applicationManagementPage;
+    }
 }

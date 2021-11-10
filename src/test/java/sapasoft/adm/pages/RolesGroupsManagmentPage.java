@@ -95,6 +95,12 @@ public class RolesGroupsManagmentPage {
         $(By.xpath("//button[@class=\"ant-btn administration__button-blue\"]")).click();
     }
 
+    //Кнопка отмена
+    @Step("Кнопка отмена")
+    public void cancel(){
+        $(By.xpath("//span[text()=\"Отмена\"]")).click();
+    }
+
     @Step("Проверка, что роль была создана")
     public void checkRoleWasCreated(String rolesGroupRusName) {
         $(byText("Группа ролей успешно создана")).shouldBe(visible);
@@ -126,7 +132,8 @@ public class RolesGroupsManagmentPage {
     public void deactivateRolesGroup(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]//span[text()=\"Деактивировать\"]")).click();
         $(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
-        $(byText("Группа ролей успешно деактивирована")).shouldBe(visible);
+        //$(byText("Группа ролей успешно деактивирована")).shouldBe(visible);
+        $(By.xpath("//*[@class=\"ant-notification-notice-message\"]")).shouldHave(text("Группа ролей успешно деактивирована"));
     }
 
     // Кнопка активировать группу ролей

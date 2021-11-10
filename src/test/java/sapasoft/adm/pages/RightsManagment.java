@@ -128,12 +128,14 @@ public class RightsManagment {
     @Step("Проверка что право с таким кодом уже существует")
     public void checkThatCodeExist(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldBe(visible);
-        $(byText("Право с таким кодом уже существует в системе")).shouldBe(visible);
+        $(By.xpath("//*[@class=\"ant-notification-notice-message\"]")).shouldHave(text("Право с таким кодом уже существует в системе"));
+        //$(byText("Право с таким кодом уже существует в системе")).shouldBe(visible);
     }
     @Step("Проверка что право с таким именем уже существует")
     public void checkThatNamesExist(){
         $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldBe(visible);
-        $(byText("Право с таким названием уже существует в системе")).shouldBe(visible);
+        $(By.xpath("//*[@class=\"ant-notification-notice-message\"]")).shouldHave(text("Право с таким названием уже существует в системе"));
+        //$(byText("Право с таким названием уже существует в системе")).shouldBe(visible);
     }
 
 
