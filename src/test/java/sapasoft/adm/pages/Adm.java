@@ -34,4 +34,14 @@ public class Adm {
         ApplicationManagementPage applicationManagementPage = new ApplicationManagementPage();
         return applicationManagementPage;
     }
+
+    public AdditionalApplicationPage additionalApplication(){
+        AdditionalApplicationPage additionalApplicationPage = new AdditionalApplicationPage();
+        return additionalApplicationPage;
+    }
+
+    public StaticalReportPage staticalReport (){
+        StaticalReportPage staticalReportPage = new StaticalReportPage();
+        return staticalReportPage;
+    }
 }
