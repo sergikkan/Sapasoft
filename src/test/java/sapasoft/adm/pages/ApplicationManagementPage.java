@@ -5,8 +5,8 @@ import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ApplicationManagementPage {
@@ -20,6 +20,7 @@ public class ApplicationManagementPage {
     public void openApplication(){
         $(By.xpath("//tbody/tr[1]")).click();
         $(By.xpath("//div[@class=\"ant-modal-body\"]//div[@class=\"ant-col ant-col-24 administration-modal__label\"]")).shouldHave(text("Заявка на создание учетной записи"));
+
     }
 
     @Step("Нажать на кнопку отмена")
@@ -57,31 +58,99 @@ public class ApplicationManagementPage {
     @Step("Выбрать тип заявки")
     public void typeOfApplication(String type) {
         $(By.xpath("//label[@title=\"Тип заявки\"]/../../div[2]//input")).click();
-        $(By.xpath("//div[@title=\"Регистрация аудитора\"]")).click();
+        $(By.xpath("//div[@title=\""+type+"\"]")).click();
     }
 
     @Step("Выбрать статус")
     public void status(String status) {
+        $(By.xpath("//label[@title=\"Статус\"]/../../div[2]//input")).click();
+        $(By.xpath("//div[@title=\""+status+"\"]")).click();
     }
 
-    @Step("Выбрать период создания")
-    public void periodOfCreation(String period) {
-    }
     @Step("Выбрать период создания")
     public void periodOfCreation(String period) {
     }
 
     @Step("Выбрать подсистему/модуль")
     public void module(String module) {
+        $(By.xpath("//label[@title=\"Подсистема/модуль\"]/../../div[2]//div[@class=\"ant-select-selector\"]")).click();
+        $(By.xpath("//span[@title=\""+module+"\"]")).click();
     }
 
+    @Step("Выбрать орган государственных доходов")
     public void ogd(String ogd) {
+        $(By.xpath("//label[@title=\"Орган государственных доходов\"]/../../div[2]//div[@class=\"antd-pro-components-select-select-wrapper\"][2]")).click();
+        $(By.xpath("//div[@class=\"ant-select-item-option-content\"][text()=\""+ogd+"\"]")).click();
+
     }
 
+    @Step("Выбрать подразделение")
     public void subdivision(String subdivision) {
+        $(By.xpath("//label[@title=\"Подразделение\"]/../../div[2]//input")).click();
+        $(By.xpath("//div[@title=\""+subdivision+"\"]")).click();
     }
 
-
+    @Step("Выбрать должность")
     public void position(String position) {
+        $(By.xpath("//label[@title=\"Должность\"]/../../div[2]//input")).click();
+        $(By.xpath("//div[text()=\""+position+"\"]")).click();
     }
+
+    @Step("Проверка, что значение Тип заявки соответствует значению в расширенном поиске")
+    public void checkTypeOfApplication(String typeOfApplication){
+        $(By.xpath("//tbody/tr[1]/td[6]")).shouldHave(exactText(typeOfApplication));
+    }
+
+    @Step("Проверка, что значение Статус соответствует значению в расширенном поиске")
+    public void checkStatus(String status){
+        $(By.xpath("//tbody/tr[1]/td[7]")).shouldHave(exactText(status));
+    }
+
+    @Step("Проверка, что значение Подсистема/модуль соответствует значению в расширенном поиске")
+    public void checkModule(String module){
+        $(By.xpath("//tbody/tr[1]/td[7]")).shouldHave(exactText(module));
+    }
+
+
+    @Step("Нажать кнопку Создать учетную запись")
+    public String createAccountAdmin(){
+        String iin = $(By.xpath("//tbody/tr[1]/td[2]/span")).getText();
+        $(By.xpath("//span[text()=\"Создать учетную запись\"]")).click();
+        $(byText("Заявка успешно согласована")).shouldBe(visible);
+        return iin;
+    }
+
+
+    @Step("Проверить что учетная запись согласована")
+    public void checkThatAccountCreated(String iin){
+        $(By.xpath("//input[@placeholder=\"Поиск по ФИО или ИИН\"]")).setValue(iin);
+        $(By.xpath("//tbody/tr[1]/td[2]")).shouldHave(exactText(iin));
+        $(By.xpath("//tbody/tr[1]/td[7]")).shouldHave(exactText("Согласована"));
+    }
+
+    @Step("Нажать кнопку Подписать ЭЦП")
+    public String signKey(){
+        String iin = $(By.xpath("//tbody/tr[1]/td[2]/span")).getText();
+        $(By.xpath("//span[text()=\"Подписать ЭЦП\"]")).click();
+//        $(byText("Заявка успешно согласована")).shouldBe(visible);
+        return iin;
+    }
+
+    @Step("Нажать кнопку Отклонить")
+    public String decline(){
+        String iin = $(By.xpath("//tbody/tr[1]/td[2]/span")).getText();
+        $(By.xpath("//span[text()=\"Отклонить\"]")).click();
+        $(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
+        $(byText("Заявка успешно отклонена")).shouldBe(visible);
+        return iin;
+    }
+
+    @Step("Проверить что заявка отлонена")
+    public void checkThatAppWasDeclined(String iin){
+        $(By.xpath("//tbody/tr[1]/td[2]")).shouldHave(exactText(iin));
+        $(By.xpath("//tbody/tr[1]/td[7]")).shouldHave(exactText("Отклонена"));
+    }
+
+
+
 }

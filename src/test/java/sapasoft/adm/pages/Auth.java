@@ -19,7 +19,7 @@ public class Auth extends BaseSetings {
         $(By.xpath("//input[@name=\"password\"]")).setValue(password);
         $(By.xpath("//input[@id=\"kc-login\"]")).click();
         refresh();
-        $(By.xpath("//div/span[text()=\"Admin\"]")).shouldBe(Condition.visible);
+        //$(By.xpath("//div/span[text()=\"Admin\"]")).shouldBe(Condition.visible);
         $(By.xpath("//div[text()=\"Администрирование и мониторинг\"]")).click();
         $(By.xpath("//div/h1")).shouldHave(Condition.text("Администрирование и мониторинг"));
         return this;

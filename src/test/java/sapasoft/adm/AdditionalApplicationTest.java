@@ -13,8 +13,8 @@ import sapasoft.adm.testconfigs.BaseSetings;
 @DisplayName("Раздел \"Подача дополнительной заявки на предоставление роли и прав\"")
 public class AdditionalApplicationTest extends BaseSetings {
     @Test
-    @DisplayName("Деактивация права")
-    public void t1DeactivationRight(){
+    @DisplayName("Подача дополнительной заявки на предоставление роли и прав")
+    public void t1AdditionalApplication(){
         Adm adm =new Adm();
         adm.logIn(login, password);
         adm.additionalApplication().open();
