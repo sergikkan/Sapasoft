@@ -1,5 +1,6 @@
 package sapasoft.adm;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.junit.TextReport;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.junit4.DisplayName;
@@ -103,6 +104,7 @@ public class RightsMangmentTest extends BaseSetings {
     adm.logIn(login, password);
     adm.rightsManagment().open();
     adm.rightsManagment().searchRight(existRusName); // Вводим в поисковую строку текст, система проверяет, что в таблице в первой строке есть право с таким наименованием или кодом
+    Selenide.sleep(5000);
     adm.logOut();
   }
 
@@ -119,6 +121,7 @@ public class RightsMangmentTest extends BaseSetings {
     adm.rightsManagment().applySearch();
     adm.rightsManagment().checkSearchModule(searchModule);
     adm.rightsManagment().checkSearchStatus(searchStatus);
+    Selenide.sleep(5000);
     adm.logOut();
     //Configuration.holdBrowserOpen = true;
   }

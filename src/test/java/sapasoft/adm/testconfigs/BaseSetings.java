@@ -21,7 +21,7 @@ public class BaseSetings {
 
     {
         Configuration.baseUrl = "https://arm.sapasoft.kz";
-        Configuration.timeout= 6000;
+        Configuration.timeout= 16000;
         //Configuration.startMaximized = true;
     }
 

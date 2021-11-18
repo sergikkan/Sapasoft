@@ -29,8 +29,8 @@ public class RolesGroupsManagmentTest extends BaseSetings {
 
 
 
-   // @Test
-    //@DisplayName("Создание новой группы ролей")
+    @Test
+    @DisplayName("Создание новой группы ролей")
     public void t1CreateRolesGroup(){
         Adm adm = new Adm();
         adm.logIn(login, password);
@@ -45,8 +45,8 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         adm.rolesGroupsManagment().chooseRoles();
         adm.rolesGroupsManagment().create();
         adm.rolesGroupsManagment().checkRoleWasCreated(rolesGroupRusName);
+        adm.rolesGroupsManagment().searchRolesGroup(rolesGroupRusName);
         adm.logOut();
-        //Configuration.holdBrowserOpen = true;
     }
 
     @Test

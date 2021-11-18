@@ -233,7 +233,7 @@ public class RolesManagment {
     // Выбрать значение модуля в поиске
     @Step("Выбрать значение модуля в поиске")
     public void chooseSearchModule(String searchModule){
-        $(By.xpath("//div[@class=\"ant-select ant-select-lg  antd-pro-components-select-select-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search\"]")).click();
+        $(By.xpath("//label[@title=\"Подсистема/модуль\"]/../../div[2]//input")).click();
         if(searchModule =="Отчетность"|| searchModule =="Регистрация налогоплательщиков и ККМ" ||searchModule =="АРМ ОГД" ||searchModule == "Кабинет налогоплательщика" ){
             $(By.xpath("//div[@title=\"Лицевые счета\"]/..")).hover();
             $(By.xpath("//div[@title=\""+searchModule+"\"]")).scrollIntoView(false);
