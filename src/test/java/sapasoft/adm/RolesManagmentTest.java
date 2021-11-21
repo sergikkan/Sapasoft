@@ -159,7 +159,7 @@ public class RolesManagmentTest extends BaseSetings {
 
     @Test
     @DisplayName("Проверка уникальных полей при создании роли")
-    public void t7CheckUniqueFields() {
+    public void t8CheckUniqueFields() {
         Adm adm = new Adm();
         adm.logIn(login, password);
         adm.rolesManagment().open();
@@ -183,12 +183,14 @@ public class RolesManagmentTest extends BaseSetings {
 
     @Test
     @DisplayName("Проверка обязательных  полей при создании роли")
-    public void t8CheckRequiredFields() {
+    public void t9CheckRequiredFields() {
         Adm adm = new Adm();
         adm.logIn(login, password);
         adm.rolesManagment().open();
         adm.rolesManagment().createNewRole();
         adm.rolesManagment().checkThatButtonDisabled();
+        adm.rolesManagment().cancel();
+        adm.logOut();
 
     }
 

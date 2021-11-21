@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SubmissionOfAPurchaseRequestOT {
 
-    @Test
+    //@Test
     public void SubmissionOfAPurchaseRequestOT() {
         open("http://dev10.sapasoft.kz/#/ext");
         element(Selectors.byXpath("//span//*[text()='зарегистрироваться']")).click();
