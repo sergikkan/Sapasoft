@@ -26,6 +26,8 @@ public class ApplicationManagementTest extends BaseSetings {
     private String position="Главный эксперт ";
     private String period="";
     protected String iin;
+    private String date=date1();
+
 
 
 
@@ -130,6 +132,23 @@ public class ApplicationManagementTest extends BaseSetings {
         Configuration.holdBrowserOpen = true;
         //adm.logOut();
 
+    }
+
+    @Test
+    @DisplayName("Регистрация сотрудника")
+    public void t7RegisrtionUser() {
+        Adm adm = new Adm();
+        adm.registration();
+        adm.registrationUser().fillIIN("900522000605");
+        adm.registrationUser().pressSearch();
+        adm.registrationUser().fillIPadress("234.545");
+        adm.registrationUser().fillNumnerOfdDocunent();
+        adm.registrationUser().chooseDate(date);
+        adm.registrationUser().chooseModule("Администрирование и мониторинг");
+        adm.registrationUser().uploadFile();
+        adm.registrationUser().chooseRights();
+        adm.registrationUser().checkThatButtonActive();
+        adm.registrationUser().pressCancel();
     }
 
 

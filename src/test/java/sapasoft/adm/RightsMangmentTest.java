@@ -1,5 +1,6 @@
 package sapasoft.adm;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.junit.TextReport;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -45,8 +46,8 @@ public class RightsMangmentTest extends BaseSetings {
 
 
   // Создание нового права
-  // @Test
-  //@DisplayName("Создание нового права")
+   //@Test
+   @DisplayName("Создание нового права")
   public void t1CreateNewRight(){
     Adm adm =new Adm();
     adm.logIn(login, password);

@@ -8,6 +8,14 @@ public class Adm {
     public void logOut(){
         new Auth().logOut();
     }
+    public void registration(){
+        new Auth().registration();
+    }
+
+    public Registration registrationUser(){
+        Registration registration = new Registration();
+        return registration;
+    }
 
     public RightsManagment rightsManagment(){
         RightsManagment rightsManagment = new RightsManagment();

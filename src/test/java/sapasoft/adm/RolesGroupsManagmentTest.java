@@ -3,9 +3,13 @@ package sapasoft.adm;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang.RandomStringUtils;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
 import sapasoft.adm.testconfigs.BaseSetings;
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 @DisplayName("Раздел \"Управление группами ролей\"")
 public class RolesGroupsManagmentTest extends BaseSetings {
 
@@ -29,7 +33,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
 
 
 
-    @Test
+   // @Test
     @DisplayName("Создание новой группы ролей")
     public void t1CreateRolesGroup(){
         Adm adm = new Adm();

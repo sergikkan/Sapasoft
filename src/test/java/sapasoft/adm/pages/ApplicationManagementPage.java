@@ -145,7 +145,7 @@ public class ApplicationManagementPage {
         return iin;
     }
 
-    @Step("Проверить что заявка отлонена")
+    @Step("Проверить что заявка отклонена")
     public void checkThatAppWasDeclined(String iin){
         $(By.xpath("//tbody/tr[1]/td[2]")).shouldHave(exactText(iin));
         $(By.xpath("//tbody/tr[1]/td[7]")).shouldHave(exactText("Отклонена"));

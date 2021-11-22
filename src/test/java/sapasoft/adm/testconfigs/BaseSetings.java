@@ -48,4 +48,10 @@ public class BaseSetings {
         return dateFormat.format(date);
     }
 
+    protected static String date1(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
 }

@@ -21,7 +21,7 @@ public class StaticalReportTest extends BaseSetings {
 //        adm.rightsManagment().openRight();
 //        adm.rightsManagment().deactivateRight();
         //adm.logOut();
-        Configuration.holdBrowserOpen = true;
+       // Configuration.holdBrowserOpen = true;
     }
 
 }
