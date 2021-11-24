@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.Before;
+import sapasoft.adm.services.PropertyDataReader;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -14,12 +15,15 @@ public class BaseSetings {
     protected String login= "admin";
     protected String password= "admin";
 
+    //public String base = System.getProperty("base");
+    //public String url = PropertyDataReader.getProperties(base).getProperty("main.url");
     @Before
     public void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     }
 
     {
+       // Configuration.baseUrl = url;
         Configuration.baseUrl = "https://arm.sapasoft.kz";
         Configuration.timeout= 16000;
         //Configuration.startMaximized = true;
@@ -53,5 +57,6 @@ public class BaseSetings {
         Date date = new Date();
         return dateFormat.format(date);
     }
+
 
 }

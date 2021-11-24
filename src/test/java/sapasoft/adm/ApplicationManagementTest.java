@@ -31,7 +31,7 @@ public class ApplicationManagementTest extends BaseSetings {
 
 
 
-    @Test
+ //   @Test
     @DisplayName("Просмотр заявки")
     public void t1ViewApplication(){
         Adm adm =new Adm();
@@ -43,7 +43,7 @@ public class ApplicationManagementTest extends BaseSetings {
 
     }
 
-    @Test
+   // @Test
     @DisplayName("Поиск заявки по наименованию или ИИН")
     public void t2SearchApplication() throws InterruptedException {
         Adm adm =new Adm();
@@ -54,7 +54,7 @@ public class ApplicationManagementTest extends BaseSetings {
         adm.logOut();
     }
 
-    @Test
+   // @Test
     @DisplayName("Расширенный поиск заявки")
     public void t3ExtendedSearchApplication() {
         Adm adm = new Adm();
@@ -134,22 +134,6 @@ public class ApplicationManagementTest extends BaseSetings {
 
     }
 
-    @Test
-    @DisplayName("Регистрация сотрудника")
-    public void t7RegisrtionUser() {
-        Adm adm = new Adm();
-        adm.registration();
-        adm.registrationUser().fillIIN("900522000605");
-        adm.registrationUser().pressSearch();
-        adm.registrationUser().fillIPadress("234.545");
-        adm.registrationUser().fillNumnerOfdDocunent();
-        adm.registrationUser().chooseDate(date);
-        adm.registrationUser().chooseModule("Администрирование и мониторинг");
-        adm.registrationUser().uploadFile();
-        adm.registrationUser().chooseRights();
-        adm.registrationUser().checkThatButtonActive();
-        adm.registrationUser().pressCancel();
-    }
 
 
 

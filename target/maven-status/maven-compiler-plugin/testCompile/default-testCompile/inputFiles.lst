@@ -1,13 +1,14 @@
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\ApplicationManagementPage.java
-C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\UsersManagment.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\Adm.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\StaticalReportPage.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\RolesGroupsManagmentPage.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\AdditionalApplicationPage.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\Auth.java
+C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\UsersManagmentTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\AdditionalApplicationTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\RolesManagmentTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\isez\SubmissionOfAPurchaseRequestOT.java
+C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\services\PropertyDataReader.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\RolesManagment.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\UsersManagmentPage.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\testconfigs\BaseSetings.java
@@ -15,4 +16,6 @@ C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\ApplicationMana
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\RightsMangmentTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\RolesGroupsManagmentTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\RightsManagment.java
+C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\RegistrationTest.java
+C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\Registration.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\StaticalReportTest.java

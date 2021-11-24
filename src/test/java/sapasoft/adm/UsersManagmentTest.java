@@ -15,7 +15,7 @@ public class UsersManagmentTest extends BaseSetings {
 
     private String blockingDate=  date();
 
-    @Step("Поиск пользователя")
+    @DisplayName("Поиск пользователя")
     @Test
     public void t1Search(){
         Adm adm= new Adm();
@@ -25,21 +25,21 @@ public class UsersManagmentTest extends BaseSetings {
         adm.logOut();
     }
 
-    @Step("Расширеный поиск пользователя")
+    @DisplayName("Расширеный поиск пользователя")
     @Test
     public void t2ExtendedSearch(){
         Adm adm= new Adm();
         adm.logIn(login, password);
         adm.usersManagment().open();
         adm.usersManagment().extendedSearchUser();
-        adm.usersManagment().fillSearchStatus("Заблокирована");
+        adm.usersManagment().fillSearchStatus("Активна");
         adm.usersManagment().applySearch();
-        adm.usersManagment().checkSearchStatus("Заблокирована");
-        Configuration.holdBrowserOpen = true;
-        //adm.logOut();
+        adm.usersManagment().checkSearchStatus("Активна");
+        //Configuration.holdBrowserOpen = true;
+        adm.logOut();
     }
 
-    @Step("Блокировка пользователя")
+    @DisplayName("Блокировка пользователя")
     @Test
     public void t3BlockUser(){
         Adm adm= new Adm();
@@ -60,7 +60,7 @@ public class UsersManagmentTest extends BaseSetings {
         adm.logOut();
     }
 
-    @Step("Разблокировка пользователя")
+    @DisplayName("Разблокировка пользователя")
     @Test
     public void t4UnblockUser(){
         Adm adm= new Adm();

@@ -40,7 +40,7 @@ public class RolesManagmentTest extends BaseSetings {
 
 
 
-    @Test
+    //@Test
     @DisplayName("Создание роли")
     public void t1CreateNewRole() {
         Adm adm = new Adm();
@@ -59,7 +59,7 @@ public class RolesManagmentTest extends BaseSetings {
 
     }
 
-    @Test
+   // @Test
     @DisplayName("Деактивация роли")
     public void t2DeactivateRole() {
 
@@ -77,7 +77,7 @@ public class RolesManagmentTest extends BaseSetings {
         //Configuration.holdBrowserOpen = true;
     }
 
-    @Test
+   // @Test
     @DisplayName("Активация роли")
     public void t3ActivateRole() {
         Adm adm = new Adm();
@@ -95,7 +95,7 @@ public class RolesManagmentTest extends BaseSetings {
     }
 
     //Поиск роли
-    @Test
+   // @Test
     @DisplayName("Поиск роли")
     public void t4SearchRole(){
         Adm adm =new Adm();
@@ -105,7 +105,7 @@ public class RolesManagmentTest extends BaseSetings {
         adm.logOut();
     }
 
-    @Test
+    //@Test
     @DisplayName("Расширенный поиск роли")
     public void t5ExtendedSearchRole(){
         Adm adm =new Adm();
@@ -123,7 +123,7 @@ public class RolesManagmentTest extends BaseSetings {
         //Configuration.holdBrowserOpen = true;
     }
 
-    @Test
+   // @Test
     @DisplayName("Просмотр информации о роли")
     public void t6OpenRoleInformation() {
         Adm adm = new Adm();
@@ -137,7 +137,7 @@ public class RolesManagmentTest extends BaseSetings {
         //Configuration.holdBrowserOpen = true;
     }
 
-    @Test
+    //@Test
     @DisplayName("Редактирование роли")
     public void t7EditRole(){
         Adm adm =new Adm();
@@ -157,7 +157,7 @@ public class RolesManagmentTest extends BaseSetings {
         adm.logOut();
     }
 
-    @Test
+    //@Test
     @DisplayName("Проверка уникальных полей при создании роли")
     public void t8CheckUniqueFields() {
         Adm adm = new Adm();
@@ -181,7 +181,7 @@ public class RolesManagmentTest extends BaseSetings {
        //  Configuration.holdBrowserOpen = true;
     }
 
-    @Test
+    //@Test
     @DisplayName("Проверка обязательных  полей при создании роли")
     public void t9CheckRequiredFields() {
         Adm adm = new Adm();

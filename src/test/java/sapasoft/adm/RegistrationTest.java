@@ -3,18 +3,22 @@ package sapasoft.adm;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import sapasoft.adm.pages.Adm;
+import sapasoft.adm.services.PropertyDataReader;
 import sapasoft.adm.testconfigs.BaseSetings;
 
+@DisplayName("Регистрация сотрудника")
 public class RegistrationTest extends BaseSetings {
-
+    //public String currentTestingEnv = System.getProperty("reg");
+    //public String IIN = PropertyDataReader.getProperties(currentTestingEnv).getProperty("registration.iin");
     private String date=date1();
+    private String iin="900522000605";
 
     @Test
     @DisplayName("Регистрация сотрудника")
-    public void t7RegisrtionUser() {
+    public void t1RegistrationUser() {
         Adm adm = new Adm();
         adm.registration();
-        adm.registrationUser().fillIIN("900522000605");
+        adm.registrationUser().fillIIN(iin);
         adm.registrationUser().pressSearch();
         adm.registrationUser().fillIPadress("234.545");
         adm.registrationUser().fillNumnerOfdDocunent();

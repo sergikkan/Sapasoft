@@ -12,7 +12,7 @@ import sapasoft.adm.testconfigs.BaseSetings;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел \"Подача дополнительной заявки на предоставление роли и прав\"")
 public class AdditionalApplicationTest extends BaseSetings {
-    @Test
+   // @Test
     @DisplayName("Подача дополнительной заявки на предоставление роли и прав")
     public void t1AdditionalApplication(){
         Adm adm =new Adm();

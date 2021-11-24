@@ -69,7 +69,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         //Configuration.holdBrowserOpen = true;
     }
 
-    @Test
+  //  @Test
     @DisplayName("Активация группы ролей")
     public void t3ActivateRolesGroup() {
         Adm adm = new Adm();
@@ -86,7 +86,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
     }
 
     //Поиск группы ролей
-    @Test
+  //  @Test
     @DisplayName("Поиск группы ролей")
     public void t4SearchRolesGroup() {
         Adm adm = new Adm();
@@ -96,7 +96,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         adm.logOut();
     }
 
-    @Test
+  ///  @Test
     @DisplayName("Расширенный поиск группы ролей")
     public void t5ExtendedSearchRolesGroup(){
         Adm adm =new Adm();
@@ -116,7 +116,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         //Configuration.holdBrowserOpen = true;
     }
 
-    @Test
+   // @Test
     @DisplayName("Просмотр информации о группе ролей")
     public void t6OpenRolesGroupInformation() {
         Adm adm = new Adm();
@@ -130,7 +130,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
        // Configuration.holdBrowserOpen = true;
     }
 
-    @Test
+  // @Test
     @DisplayName("Редактирование группы ролей")
     public void t7EditRolesGroup(){
         Adm adm =new Adm();
@@ -148,7 +148,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         adm.logOut();
     }
 
-    @Test
+    //@Test
     @DisplayName("Проверка уникальных полей при создании группы ролей")
     public void t8CheckUniqueFields() {
         Adm adm = new Adm();

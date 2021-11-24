@@ -1,13 +1,16 @@
 sapasoft\adm\AdditionalApplicationTest.class
 sapasoft\adm\pages\Adm.class
-sapasoft\adm\UsersManagment.class
 sapasoft\adm\pages\AdditionalApplicationPage.class
 sapasoft\adm\testconfigs\BaseSetings.class
+sapasoft\adm\services\PropertyDataReader.class
 sapasoft\adm\RolesGroupsManagmentTest.class
 sapasoft\adm\RightsMangmentTest.class
+sapasoft\adm\UsersManagmentTest.class
 sapasoft\adm\pages\Auth.class
+sapasoft\adm\pages\Registration.class
 sapasoft\adm\StaticalReportTest.class
 sapasoft\adm\pages\RolesGroupsManagmentPage.class
+sapasoft\adm\RegistrationTest.class
 sapasoft\adm\ApplicationManagementTest.class
 sapasoft\adm\pages\ApplicationManagementPage.class
 sapasoft\adm\pages\RightsManagment.class

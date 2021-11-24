@@ -16,4 +16,17 @@ public class StaticalReportPage {
         $(By.xpath("//div[@class='antd-pro-components-menu-page-index-items']/a[7]")).click();
         $(By.xpath("//div/h1")).shouldHave(text("Статистические отчеты"));
     }
+
+    public void openUsers(){
+        $(By.xpath("//div[@class=\"ant-radio-group ant-radio-group-solid\"]/label[1]/span[2]")).click();
+    }
+
+    public void openRoles(){
+        $(By.xpath("//div[@class=\"ant-radio-group ant-radio-group-solid\"]/label[2]/span[2]")).click();
+    }
+    public void openRights(){
+        $(By.xpath("//div[@class=\"ant-radio-group ant-radio-group-solid\"]/label[3]/span[2]")).click();
+    }
+
+
 }
