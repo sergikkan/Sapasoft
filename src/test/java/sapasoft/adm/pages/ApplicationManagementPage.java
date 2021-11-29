@@ -19,7 +19,7 @@ public class ApplicationManagementPage {
     @Step("Открыть заявку для просмотра")
     public void openApplication(){
         $(By.xpath("//tbody/tr[1]")).click();
-        $(By.xpath("//div[@class=\"ant-modal-body\"]//div[@class=\"ant-col ant-col-24 administration-modal__label\"]")).shouldHave(text("Заявка на создание учетной записи"));
+        $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldBe(visible);
 
     }
 
@@ -75,11 +75,12 @@ public class ApplicationManagementPage {
     public void module(String module) {
         $(By.xpath("//label[@title=\"Подсистема/модуль\"]/../../div[2]//div[@class=\"ant-select-selector\"]")).click();
         $(By.xpath("//span[@title=\""+module+"\"]")).click();
+        $(By.xpath("//label[@title=\"Подсистема/модуль\"]/../../div[2]//div[@class=\"ant-select-selector\"]")).click();
     }
 
     @Step("Выбрать орган государственных доходов")
     public void ogd(String ogd) {
-        $(By.xpath("//label[@title=\"Орган государственных доходов\"]/../../div[2]//div[@class=\"antd-pro-components-select-select-wrapper\"][2]")).click();
+        $(By.xpath("//label[@title=\"Орган государственных доходов\"]/../../div[2]//span/div[2]//input")).click();
         $(By.xpath("//div[@class=\"ant-select-item-option-content\"][text()=\""+ogd+"\"]")).click();
 
     }
@@ -113,11 +114,12 @@ public class ApplicationManagementPage {
 
 
     @Step("Нажать кнопку Создать учетную запись")
-    public String createAccountAdmin(){
-        String iin = $(By.xpath("//tbody/tr[1]/td[2]/span")).getText();
+    public void createAccountAdmin(){
+
         $(By.xpath("//span[text()=\"Создать учетную запись\"]")).click();
-        $(byText("Заявка успешно согласована")).shouldBe(visible);
-        return iin;
+        $(By.xpath("//*[@class=\"ant-notification-notice-message\"]")).shouldHave(text("Учетная запись создана"));
+        //$(byText("Заявка успешно согласована")).shouldBe(visible);
+
     }
 
 
@@ -137,12 +139,11 @@ public class ApplicationManagementPage {
     }
 
     @Step("Нажать кнопку Отклонить")
-    public String decline(){
+    public void decline(){
         String iin = $(By.xpath("//tbody/tr[1]/td[2]/span")).getText();
         $(By.xpath("//span[text()=\"Отклонить\"]")).click();
         $(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
         $(byText("Заявка успешно отклонена")).shouldBe(visible);
-        return iin;
     }
 
     @Step("Проверить что заявка отклонена")
@@ -151,6 +152,18 @@ public class ApplicationManagementPage {
         $(By.xpath("//tbody/tr[1]/td[7]")).shouldHave(exactText("Отклонена"));
     }
 
+    @Step("Проверить что результат соответствует значению в поиске")
+    public void checkSearchResult(String s) {
+        $(By.xpath("//tbody/tr[1]")).shouldHave(text(s));
 
+
+    }
+
+    @Step("Нажать на кнопку согласовать")
+    public void applyButton() {
+        $(By.xpath("//span[text()=\"Согласовать\"]")).click();
+        $(By.xpath("//div[@class=\"ant-popover-content\"]//button[@class=\"ant-btn ant-btn-primary administration__button-gold-small\"]")).click();
+        $(By.xpath("//*[@class=\"ant-notification-notice-message\"]")).shouldHave(text("Заявка успешно согласована"));
+    }
 
 }

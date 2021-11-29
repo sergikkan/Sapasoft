@@ -35,9 +35,13 @@ public class RolesGroupsManagmentPage {
         $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
-        $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).setValue(rusName);
-        $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).setValue(rusName);
-        $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).setValue(engName);
+        $(By.xpath("//label[text()=\"Наименование на английском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
+
+        $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).sendKeys(rusName);
+        Selenide.sleep(1000);
+        $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).sendKeys(rusName);
+        $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).sendKeys(engName);
+        $(By.xpath("//label[text()=\"Наименование на английском\"]/parent::div/parent::div//input")).sendKeys(engName);
     }
 
     @Step("Выбрать модуль группу ролей")
@@ -55,16 +59,15 @@ public class RolesGroupsManagmentPage {
         $(By.xpath("//span[@title=\""+module+"\"]")).click();
 
         //}
-        $(By.xpath("//div[@class=\"ant-modal-body\"]//div[@class=\"ant-select-selection-overflow\"]")).click();
+        $(By.xpath("//div[@class=\"ant-modal-body\"]//label[text()=\"Подсистема/модуль\"]/../..//input")).click();
         $(By.xpath("//span[@title=\""+module+"\"]")).shouldBe(visible);
     }
 
     @Step("Выбрать орган государственных доходов")
     public void chooseDepartment(String rolesGroupDepartment) {
-        $(By.xpath("//form/div/div[7]/div/div[2]/div/div/span/div[2]")).click();
-
+        $(By.xpath("//span[@class=\"ant-input-group ant-input-group-compact\"]/div[2]//input")).click();
         $(By.xpath("//div[@title=\""+rolesGroupDepartment+"\"]")).click();
-       // $(By.xpath("//div[@title=\""+rolesGroupDepartment+"\"]")).shouldBe(visible);
+
     }
 
     @Step("Выбрать подразделение")

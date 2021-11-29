@@ -19,9 +19,7 @@ import sapasoft.adm.testconfigs.BaseSetings;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел \"Управление правами\"")
@@ -45,10 +43,9 @@ public class RightsMangmentTest extends BaseSetings {
 
 
 
-  // Создание нового права
-   //@Test
+  // @Test
    @DisplayName("Создание нового права")
-  public void t1CreateNewRight(){
+   public void t1CreateNewRight(){
     Adm adm =new Adm();
     adm.logIn(login, password);
     adm.rightsManagment().open();
@@ -60,10 +57,11 @@ public class RightsMangmentTest extends BaseSetings {
     adm.rightsManagment().create();
     adm.rightsManagment().checkRightWasCreated(rusName);
     adm.logOut();
+     //Configuration.holdBrowserOpen = true;
 
   }
 
-  //Деактивация права
+
   @Test
   @DisplayName("Деактивация права")
   public void t2DeactivationRight(){
@@ -79,7 +77,7 @@ public class RightsMangmentTest extends BaseSetings {
     adm.logOut();
   }
 
-  //Активация права
+
   @Test
   @DisplayName("Активация права")
   public void t3ActivationRight(){
@@ -96,7 +94,7 @@ public class RightsMangmentTest extends BaseSetings {
     adm.logOut();
   }
 
-  //Поиск права
+
   @Test
   @DisplayName("Поиск права")
   public void t4SearchRight(){
@@ -109,7 +107,7 @@ public class RightsMangmentTest extends BaseSetings {
     adm.logOut();
   }
 
-  //Расширенный поиск
+
   @Test
   @DisplayName("Расширенный поиск права")
   public void t5ExtendedSearchRight(){
@@ -122,12 +120,9 @@ public class RightsMangmentTest extends BaseSetings {
     adm.rightsManagment().applySearch();
     adm.rightsManagment().checkSearchModule(searchModule);
     adm.rightsManagment().checkSearchStatus(searchStatus);
-    Selenide.sleep(5000);
     adm.logOut();
-    //Configuration.holdBrowserOpen = true;
   }
 
-  // Редактирование права
   @Test
   @DisplayName("Редактирование права")
   public void t6EditRight(){
@@ -164,6 +159,5 @@ public class RightsMangmentTest extends BaseSetings {
     adm.rightsManagment().checkThatNamesExist();
     adm.rightsManagment().cancel();
     adm.logOut();
-    //Configuration.holdBrowserOpen = true;
   }
 }

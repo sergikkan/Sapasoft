@@ -67,6 +67,7 @@ public class Registration extends BaseSetings {
         $(By.xpath("//button[@class=\"ant-btn administration administration__button-gold\"]")).shouldBe(enabled);
     }
 
+    @Step("Нажать кнопку отмена")
     public void pressCancel() {
         $(By.xpath("//button[@class=\"ant-btn administration__button-white\"]")).click();
     }

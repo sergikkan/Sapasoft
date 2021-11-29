@@ -25,13 +25,14 @@ public class BaseSetings {
     {
        // Configuration.baseUrl = url;
         Configuration.baseUrl = "https://arm.sapasoft.kz";
-        Configuration.timeout= 16000;
-        //Configuration.startMaximized = true;
+        Configuration.timeout= 7000;
+        Configuration.startMaximized = true;
     }
 
     /*Генерация случайной строки русских букв*/
     protected static Random sRandom = new Random();
-    protected static char[] sAlphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя".toCharArray();
+    protected static char[] sAlphabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя".toCharArray();
+
     protected static int sLength = sAlphabet.length;
 
     protected static char getRandomChar() {

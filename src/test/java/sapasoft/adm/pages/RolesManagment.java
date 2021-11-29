@@ -1,5 +1,6 @@
 package sapasoft.adm.pages;
 
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -33,10 +34,13 @@ public class RolesManagment {
         $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
-        $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).setValue(rusName);
-
-        $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).setValue(rusName);
-        $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).setValue(engName);
+        $(By.xpath("//label[text()=\"Наименование на английском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
+        Selenide.sleep(1000);
+        $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).sendKeys(rusName);
+        Selenide.sleep(1000);
+        $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).sendKeys(rusName);
+        $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).sendKeys(engName);
+        $(By.xpath("//label[text()=\"Наименование на английском\"]/parent::div/parent::div//input")).sendKeys(engName);
     }
     //Выбрать модуль
     @Step("Выбрать модуль")
@@ -77,7 +81,7 @@ public class RolesManagment {
     @Step("Выбрать первое право из списка прав")
     public void  chooseRights(){
         $(By.xpath("//ul[@class=\"ant-list-items\"]/div[1]//span[@class=\"ant-checkbox\"]")).click();
-        $(By.xpath("//form/div/div/div[8]/div/div[2]/div/div[1]/button")).click();
+        $(By.xpath("//div[@class=\"ant-row\"]/div/button")).click();
         $(By.xpath("//div[text()=\"Выбранные права\"]/parent::div//ul/div")).shouldBe(visible);
     }
 
