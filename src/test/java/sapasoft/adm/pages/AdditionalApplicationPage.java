@@ -1,8 +1,7 @@
 package sapasoft.adm.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import sapasoft.adm.testconfigs.BaseSetings;
+
 
 import java.io.File;
 

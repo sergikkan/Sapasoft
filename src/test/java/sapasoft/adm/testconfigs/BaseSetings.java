@@ -4,7 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.Before;
-import sapasoft.adm.services.PropertyDataReader;
+
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,7 +23,7 @@ public class BaseSetings {
     }
 
     {
-       // Configuration.baseUrl = url;
+
         Configuration.baseUrl = "https://arm.sapasoft.kz";
         Configuration.timeout= 7000;
         Configuration.startMaximized = true;
