@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.confirm;
 import static com.codeborne.selenide.Selenide.sleep;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Groups extends Base {
+public class GroupsTest extends Base {
 
                                         /* РАЗДЕЛ ГРУППЫ  */
 
@@ -20,8 +20,8 @@ public class Groups extends Base {
     private String newCode= "newGroup"+System.currentTimeMillis(); // Код группы для редактирования
     private String existcode= "_Test_Group_"; // Код группы, которая существует в системе
     private String intcode = "ТестГрупСерик";  // Код группы, которая используется во взаимодействии
-    private String deleteGroup ="newGroup1638789556177";  // Код группы, которую нужно удалить
-    private String editGroup ="newGroup163";  // Код группы, которую нужно изменить
+    private String deleteGroup ="GroupForDeleteTest";  // Код группы, которую нужно удалить
+    private String editGroup ="GroupForEditTest";  // Код группы, которую нужно изменить
 
 
     // Создание новой группы
@@ -35,6 +35,8 @@ public class Groups extends Base {
         ish.groups().fillCodeOfGroup(code);
         ish.groups().save();
         ish.groups().search(code);
+        ish.groups().delete();
+        ish.groups().checkGroupNotExist(code);
         ish.logOut();
 
     }
@@ -115,32 +117,44 @@ public class Groups extends Base {
         ish.groups().save();
         ish.groups().clearSerchLine();
         ish.groups().search(newCode);
+        ish.groups().edit();
+        ish.groups().clearFieldGroup();
+        ish.groups().fillNewCode(editGroup);
+        ish.groups().save();
+        ish.groups().clearSerchLine();
+        ish.groups().search(editGroup);
         ish.logOut();
     }
 
     // Удаление группы
-
+    @DisplayName("Удаление группы")
     @Test
     public void t7DeleteGroup(){
         Ish ish = new Ish();
         ish.logIn(login, password);
         ish.groups().open();
         ish.groups().search(deleteGroup);
-        ish.groups().delete(deleteGroup);
+        ish.groups().delete();
+        ish.groups().clearSerchLine();
         ish.groups().checkGroupNotExist(deleteGroup);
+        ish.groups().clearSerchLine();
+        ish.groups().add();
+        ish.groups().fillCodeOfGroup(deleteGroup);
+        ish.groups().save();
+        ish.groups().search(deleteGroup);
         ish.logOut();
-
+       // Configuration.holdBrowserOpen = true;
     }
 
     // Проверка невозможности удаления группы, которая используется во взаимодействии
-
+    @DisplayName("Проверка невозможности удаления группы, которая используется во взаимодействии")
     @Test
     public void t8DeleteIntegrationGroup(){
         Ish ish = new Ish();
         ish.logIn(login, password);
         ish.groups().open();
         ish.groups().search(intcode);
-        ish.groups().delete(intcode);
+        ish.groups().delete();
         ish.groups().checkThatGroupInInteger(intcode);
         ish.logOut();
     }

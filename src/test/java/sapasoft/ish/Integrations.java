@@ -9,14 +9,14 @@ public class Integrations extends Base {
 
 
     @Test
-    public void t17CreateNewIntegration(){
+    public void t1CreateNewIntegration(){
         Ish ish = new Ish();
         ish.logIn(login, password);
         ish.integrations().open();
         ish.integrations().add();
-        //ish.integrations().fillCodeOfIntegation("codeofintegraton");
-        // ish.integrations().fillNameOfIntegration("nameofintegraton");
-        // ish.integrations().fillReceiverURL("https://t.t");
+        ish.integrations().fillCodeOfIntegation("codeofintegraton");
+        ish.integrations().fillNameOfIntegration("nameofintegraton");
+        ish.integrations().fillReceiverURL("https://t.t");
         ish.integrations().fillReceiverName("https://t.t");
         ish.integrations().fillReceiverProtocol("EIS");
 //        ish.integrations().save();

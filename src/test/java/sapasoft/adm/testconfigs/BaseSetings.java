@@ -17,10 +17,10 @@ public class BaseSetings {
 
     //public String base = System.getProperty("base");
     //public String url = PropertyDataReader.getProperties(base).getProperty("main.url");
-    @Before
-    public void setUp() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-    }
+//    @Before
+//    public void setUp() {
+//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+//    }
 
     {
 

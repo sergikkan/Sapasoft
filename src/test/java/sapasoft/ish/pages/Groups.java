@@ -29,8 +29,7 @@ public class Groups {
     }
 
     @Step("Удалить группу")
-    public void delete(String group) {
-        //$(By.xpath("//tbody/tr[1]/td[1]")).shouldHave(value(group));
+    public void delete() {
         $(By.xpath("//tbody/tr[1]/td[3]/div/button[2]")).click();
         confirm();
     }
@@ -99,6 +98,7 @@ public class Groups {
         $(byText(intcode)).shouldBe(visible);
     }
 
+    @Step("Очистить поле поиска")
     public void clearSerchLine(){
         $(By.xpath("//div[@class=\"MuiFormControl-root MuiTextField-root\"]/div/div[2]/button")).click();
     }

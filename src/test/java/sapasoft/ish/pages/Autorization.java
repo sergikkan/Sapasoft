@@ -1,5 +1,6 @@
 package sapasoft.ish.pages;
 
+import io.qameta.allure.Step;
 import sapasoft.ish.testconfigs.Base;
 import org.openqa.selenium.By;
 
@@ -7,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Autorization extends Base {
-
+    @Step("Авторизация в системе")
     public Autorization logIn( String login, String password){
         closeWebDriver();
         open("/");
@@ -20,6 +21,7 @@ public class Autorization extends Base {
         return this;
     }
 
+    @Step("Выход из системы")
     public Autorization logOut(){
         $(By.xpath("//span[text()=\"Выйти\"]")).click();
         $(By.xpath("//form/div[@class = \"makeStyles-title-7\"]")).shouldBe(text("Авторизация"));

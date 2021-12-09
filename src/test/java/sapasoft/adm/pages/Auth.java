@@ -17,7 +17,7 @@ public class Auth extends BaseSetings {
     public Auth logIn(String login, String password) {
         closeWebDriver();
         open("/");
-        $(By.xpath("//span[text()=\"Авторизация Stateless Keycloak\"]")).click();
+       // $(By.xpath("//span[text()=\"Авторизация Stateless Keycloak\"]")).click();
         $(By.xpath("//input[@id=\"username\"]")).setValue(login);
         $(By.xpath("//input[@class ='btn-login-page']")).click();
         $(By.xpath("//button[@id=\"proceed-button\"]")).click();
@@ -36,7 +36,7 @@ public class Auth extends BaseSetings {
         $(By.xpath("//*[@class=\"ant-notification-notice-message\"]")).shouldNotBe(Condition.visible);
         $(By.xpath("//a/span[text()=\"Выйти из профиля\"]")).click();
         $(By.xpath("//a[text()=\"Да\"]")).click();
-        $(By.xpath("//p[text()=\"Вход по логину и паролю\"]")).shouldBe(Condition.visible);
+        $(By.xpath("//p[@id=\"kc-page-title\"]")).shouldHave(Condition.text("        Выберите способ авторизации"));
         return this;
     }
 

@@ -6,6 +6,7 @@ C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\pages\Integrati
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\AdditionalApplicationTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\pages\Autorization.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\testconfigs\BaseSetings.java
+C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\MembersTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\pages\Ish.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\testconfigs\Base.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\ApplicationManagementTest.java
@@ -13,6 +14,7 @@ C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\RightsMan
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\RegistrationTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\StuckJournals.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\StaticalReportTest.java
+C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\GroupsTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\Notifications.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\pages\Groups.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\StaticalReportPage.java
@@ -21,7 +23,6 @@ C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\Additiona
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\Auth.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\UsersManagmentTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\RolesManagmentTest.java
-C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\Groups.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\pages\Members.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\services\PropertyDataReader.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\RolesManagment.java
@@ -29,7 +30,6 @@ C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\SmsGroup.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\UsersManagmentPage.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\RightsMangmentTest.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\RolesGroupsManagmentTest.java
-C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\Members.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\pages\Journals.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\adm\pages\Registration.java
 C:\Users\Кан Сергей\IdeaProjects\SAPA\src\test\java\sapasoft\ish\Journals.java
