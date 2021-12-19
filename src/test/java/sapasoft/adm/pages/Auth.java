@@ -18,6 +18,7 @@ public class Auth extends BaseSetings {
         closeWebDriver();
         open("/");
        // $(By.xpath("//span[text()=\"Авторизация Stateless Keycloak\"]")).click();
+       // $(By.xpath("//input[@id=\"username\"]")).wait(10000);
         $(By.xpath("//input[@id=\"username\"]")).setValue(login);
         $(By.xpath("//input[@class ='btn-login-page']")).click();
         $(By.xpath("//button[@id=\"proceed-button\"]")).click();
@@ -44,7 +45,7 @@ public class Auth extends BaseSetings {
     @Step("Открыть раздел регистрация")
     public Auth registration() {
         open("/");
-        $(By.xpath("//button/a[text()=\"Зарегистрироваться\"]")).click();
+        $(By.xpath("//footer/div[@class=\"kc-portal-back\"]/a")).click();
 
         return this;
     }

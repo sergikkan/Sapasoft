@@ -1,10 +1,14 @@
 sapasoft\adm\AdditionalApplicationTest.class
 sapasoft\ish\pages\Journals.class
 sapasoft\adm\testconfigs\BaseSetings.class
+sapasoft\adm\RolesGroupsManagmentTest.class
 sapasoft\adm\pages\Auth.class
 sapasoft\adm\pages\Registration.class
+sapasoft\adm\StaticalReportTest.class
 sapasoft\adm\pages\RolesGroupsManagmentPage.class
 sapasoft\ish\pages\Groups.class
+sapasoft\adm\ApplicationManagementTest.class
+sapasoft\adm\RolesManagmentTest.class
 sapasoft\ish\Notifications.class
 sapasoft\ish\GroupsTest.class
 sapasoft\adm\pages\StaticalReportPage.class
@@ -16,6 +20,8 @@ sapasoft\ish\testconfigs\Base.class
 sapasoft\ish\pages\Ish.class
 sapasoft\adm\pages\AdditionalApplicationPage.class
 sapasoft\adm\services\PropertyDataReader.class
+sapasoft\adm\RightsMangmentTest.class
+sapasoft\adm\UsersManagmentTest.class
 sapasoft\ish\StuckJournals.class
 sapasoft\ish\MembersTest.class
 sapasoft\ish\pages\Integrations.class

@@ -149,9 +149,11 @@ public class RightsManagment {
     @Step("Поиск по коду или наименованию")
     public void searchRight(String searchText){
         $(By.xpath("//input[@name=\"searchValue\"]")).setValue(searchText);
+
         $(By.xpath("//tbody/tr[1]")).shouldHave(text(searchText));
 
     }
+
 
     //Кнопка Расширенный поиск
     @Step("Кнопка расширенный поиск")
@@ -186,6 +188,7 @@ public class RightsManagment {
     @Step("Нажать кнопку применить в поиске")
     public void applySearch(){
         $(By.xpath("//div[@class=\"ant-space-item\"]//span[text()=\"Применить\"]")).click();
+        //$(By.xpath("//div[@class=\"filter opened\"]")).click();
     }
 
     // Кнопка Сбросить

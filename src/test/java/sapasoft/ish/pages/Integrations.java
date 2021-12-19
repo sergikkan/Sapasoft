@@ -46,14 +46,37 @@ public class Integrations {
         $(By.xpath("//textarea[@name=\"receiver_url\"]")).setValue(url);
     }
     public void fillReceiverName(String rname) {
-        $(By.xpath("//textarea[@name=\"receiver_name\"]")).setValue(rname);
+        $(By.xpath("//textarea[@name=\"receiver_name\"]")).setValue(rname).sendKeys(Keys.TAB, Keys.TAB, Keys.ENTER );
     }
 
     public void fillReceiverProtocol(String protocol) {
-        $(By.xpath("//textarea[@name=\"receiver_name\"]")).sendKeys(Keys.TAB);
-        $(By.xpath("//div[@class=\"MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot FormikMaterialUIAutocomplete-inputRoot-52 MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd MuiInputBase-marginDense MuiOutlinedInput-marginDense\"]")).click();
-        $(By.xpath("//label[text() = \"Протокол получателя\"]")).click();
-        $(By.xpath("//ul/li[text()="+protocol+"]")).click();
 
+        $(By.xpath("//ul/li[@data-value=\"EIS\"]")).click();
+
+    }
+
+    public void chooseGroup(String eis) {
+        $(By.xpath("//div[@aria-labelledby=\"form-dialog-objects\"]//label[text()=\"Группа\"]/..//input")).click();
+        $(By.xpath("//div[@aria-labelledby=\"form-dialog-objects\"]//label[text()=\"Группа\"]/..//input")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+    }
+
+    public void stopReceive(){
+        $(By.xpath("//div[@aria-labelledby=\"form-dialog-objects\"]//input[@name=\"income_disable\"]")).click();
+    }
+
+    public void stopTransfer(){
+        $(By.xpath("//div[@aria-labelledby=\"form-dialog-objects\"]//input[@name=\"outcome_disable\"]")).click();
+    }
+
+    public void checkShep2(){
+        $(By.xpath("//div[@aria-labelledby=\"form-dialog-objects\"]//input[@name=\"is_shep\"]")).click();
+    }
+
+    public void extendedLoging(){
+        $(By.xpath("//div[@aria-labelledby=\"form-dialog-objects\"]//input[@name=\"extend_log\"]")).click();
+    }
+
+    public void checkTagData(){
+        $(By.xpath("//div[@aria-labelledby=\"form-dialog-objects\"]//input[@name=\"with_tag_data\"]")).click();
     }
 }

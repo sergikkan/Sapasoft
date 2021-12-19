@@ -16,7 +16,7 @@ public class AdditionalApplicationTest extends BaseSetings {
     String dateFrom =date();
 
 
-   // @Test
+    @Test
     @DisplayName("Подача дополнительной заявки на предоставление роли и прав")
     public void t1AdditionalApplication(){
         Adm adm =new Adm();
@@ -25,9 +25,11 @@ public class AdditionalApplicationTest extends BaseSetings {
         adm.additionalApplication().choosePeriod(dateFrom);
         adm.additionalApplication().chooseModule("Реабилитация и банкротство");
         adm.additionalApplication().uploadFile();
-        adm.additionalApplication().chosseRole();
+        adm.additionalApplication().chooseRole();
+        adm.additionalApplication().chooseRight();
         adm.additionalApplication().agreementText();
         adm.additionalApplication().checkSignButton();
         adm.logOut();
+       // Configuration.holdBrowserOpen = true;
     }
 }

@@ -37,8 +37,12 @@ public class AdditionalApplicationPage {
         $(By.xpath("//input[@type=\"file\"]")).uploadFile(file);
     }
 
-    public void chosseRole() {
+    public void chooseRole() {
         $(By.xpath("//div[text()=\"Доступные подсиcтемы (модули)/роли\"]/..//span[@class=\"ant-tree-checkbox-inner\"]")).click();
+    }
+
+    public void chooseRight() {
+        $(By.xpath("//div[text()=\"Выбранные права\"]/..//span[@class=\"ant-tree-checkbox-inner\"]")).click();
     }
 
     public void agreementText() {
@@ -46,6 +50,6 @@ public class AdditionalApplicationPage {
     }
 
     public void checkSignButton() {
-        $(By.xpath("//span[text()=\"Подписать ЭЦП\"]")).shouldBe(enabled);
+        $(By.xpath("//button[@class=\"ant-btn appBtnSecondary btnStyle\"]/span")).shouldBe(enabled);
     }
 }

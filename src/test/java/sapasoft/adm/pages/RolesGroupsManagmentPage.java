@@ -174,6 +174,7 @@ public class RolesGroupsManagmentPage {
     @Step("Нажать на кнопку применить в расширенном поиске")
     public void applySearch(){
         $(By.xpath("//div[@class=\"ant-space-item\"]//span[text()=\"Применить\"]")).click();
+        $(By.xpath("//div[@class=\"filter opened\"]")).click();
     }
 
     // Кнопка Сбросить

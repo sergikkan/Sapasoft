@@ -8,7 +8,7 @@ import org.junit.Test;
 public class Integrations extends Base {
 
 
-    @Test
+   // @Test
     public void t1CreateNewIntegration(){
         Ish ish = new Ish();
         ish.logIn(login, password);
@@ -19,7 +19,13 @@ public class Integrations extends Base {
         ish.integrations().fillReceiverURL("https://t.t");
         ish.integrations().fillReceiverName("https://t.t");
         ish.integrations().fillReceiverProtocol("EIS");
-//        ish.integrations().save();
+        ish.integrations().chooseGroup("EIS");
+        ish.integrations().stopTransfer();
+        ish.integrations().stopReceive();
+        ish.integrations().checkShep2();
+        ish.integrations().extendedLoging();
+        ish.integrations().checkTagData();
+        ish.integrations().save();
 //        ish.groups().checkGroupWasCreated(code);
 //        ish.logOut();
         Configuration.holdBrowserOpen = true;

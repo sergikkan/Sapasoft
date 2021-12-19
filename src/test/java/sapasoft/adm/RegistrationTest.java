@@ -13,7 +13,7 @@ public class RegistrationTest extends BaseSetings {
     private String date=date1();
     private String iin="900522000608";
 
-    //@Test
+  // @Test
     @DisplayName("Регистрация сотрудника")
     public void t1RegistrationUser() {
         Adm adm = new Adm();

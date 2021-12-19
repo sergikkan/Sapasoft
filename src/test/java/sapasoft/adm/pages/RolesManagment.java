@@ -260,14 +260,14 @@ public class RolesManagment {
     @Step("Нажать на кнопку применить в поиске")
     public void applySearch(){
         $(By.xpath("//div[@class=\"ant-space-item\"]//span[text()=\"Применить\"]")).click();
-        $(By.xpath("//div[@class=\"filter\"]")).click();
+        $(By.xpath("//div[@class=\"filter opened\"]")).click();
     }
 
     // Кнопка Сбросить
     @Step("Нажать на кнопку сбросить в поиске")
     public void resetSearch(){
         $(By.xpath("//div[@class=\"ant-space-item\"]//span[text()=\"Сбросить\"]")).click();
-        $(By.xpath("//div[@class=\"filter\"]")).click();
+
     }
 
     // Проверка, что статус соотвествует значению в поиске

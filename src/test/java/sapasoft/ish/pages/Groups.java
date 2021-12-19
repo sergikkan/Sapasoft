@@ -83,6 +83,7 @@ public class Groups {
     @Step("Поиск группы по коду")
     public void search(String code) {
         $(By.xpath("//input[@name=\"search\"]")).setValue(code);
+        sleep(1000);
         $(By.xpath("//tbody/tr[1]")).shouldHave(text(code));
     }
 
@@ -90,6 +91,7 @@ public class Groups {
     @Step("Проверка, что группа не существует")
     public void checkGroupNotExist(String code) {
         $(By.xpath("//input[@name=\"search\"]")).setValue(code);
+        sleep(1000);
         $(By.xpath("//tbody/tr[1]")).shouldHave(text("Нет данных"));
     }
     @Step("Проверка что группа использется во взаимодействии")
