@@ -16,7 +16,7 @@ public class AdditionalApplicationTest extends BaseSetings {
     String dateFrom =date();
 
 
-    @Test
+   // @Test
     @DisplayName("Подача дополнительной заявки на предоставление роли и прав")
     public void t1AdditionalApplication(){
         Adm adm =new Adm();
