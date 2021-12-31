@@ -64,10 +64,9 @@ public class RightsMangmentTest extends BaseSetings {
   }
 
 
-  @Test
-  @DisplayName("Деактивация и активация права")
-  public void t2DeactivationActivationRight(){
-     open("https://google.com");
+  //@Test
+ // @DisplayName("Деактивация и активация права")
+ // public void t2DeactivationActivationRight(){
 //    Adm adm =new Adm();
 //    adm.logIn(login, password);
 //    adm.rightsManagment().open();
@@ -84,7 +83,7 @@ public class RightsMangmentTest extends BaseSetings {
 //    adm.logOut();
 //
 //    // Configuration.holdBrowserOpen = true;
-  }
+ // }
 //
 //
 ////  @Test

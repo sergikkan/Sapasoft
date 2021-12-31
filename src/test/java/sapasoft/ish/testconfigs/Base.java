@@ -17,7 +17,7 @@ public class Base {
     }
 
     {
-        Configuration.baseUrl = "http://ish-dev.sapasoft.kz";
+        Configuration.baseUrl = "https://esb.sapasoft.kz";
         Configuration.timeout= 8000;
         //Configuration.startMaximized = true;
     }
