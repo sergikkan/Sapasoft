@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ApplicationManagementPage {
-    @DisplayName("Открываем раздел \"Управление заявками\"")
+    @Step("Открываем раздел \"Управление заявками\"")
     public void open(){
         $(By.xpath("//div[@class='antd-pro-components-menu-page-index-items']/a[5]")).click();
          $(By.xpath("//div/h1")).shouldHave(text("Управление заявками"));

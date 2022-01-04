@@ -69,7 +69,7 @@ public class UsersManagmentPage {
     @Step("Нажать на кнопку применить в расширенном поиске")
     public void applySearch(){
         $(By.xpath("//div[@class=\"ant-space-item\"]//span[text()=\"Применить\"]")).click();
-        $(By.xpath("//div[@class=\"filter opened\"]")).click();
+
     }
 
     // Кнопка Сбросить
@@ -102,9 +102,9 @@ public class UsersManagmentPage {
 
 
     @Step("Выбрать причину блокировки")
-    public void reasonOfBlockingUser(){
+    public void reasonOfBlockingUser(String reason){
         $(By.xpath("//label[text()=\"Причина\"]/..//../div[2]//input")).click();
-        $(By.xpath("//div[@title=\"Отпуск\"]")).click();
+        $(By.xpath("//div[@title=\""+reason+"\"]")).click();
     }
 
 
@@ -141,9 +141,13 @@ public class UsersManagmentPage {
     }
 
 
+    public void fillLogin(String existLogin) {
+        $(By.xpath("//input[@placeholder=\"Введите логин\"]")).setValue(existLogin);
+    }
 
-
-
+    public void checkLogin(String existLogin){
+        $(By.xpath("//tbody/tr[2]/td[1]")).shouldHave(text(existLogin));
+    }
 }
 
 

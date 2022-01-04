@@ -3,6 +3,7 @@ package sapasoft.adm.pages;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.FixMethodOrder;
+import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 
@@ -42,6 +43,24 @@ public class StaticalReportPage {
         $(By.xpath("placeholder=\"Введите наименование\"")).setValue(reg);
     }
 
+    @Step ("Открыть отчет по действиям администраторов")
+    public void openAdmins() {
+        $(By.xpath("//div[@class=\"ant-radio-group ant-radio-group-solid\"]/label[4]/span[2]")).click();
+    }
+
+    @Step ("Открыть статистический отчет")
+    public void openReport() {
+        $(By.xpath("//div[@class=\"ant-radio-group ant-radio-group-solid\"]/label[5]/span[2]")).click();
+    }
 
 
+    @Step("Нажать на кнопку сформировать отчет")
+    public void formReportButton(){
+        $(By.xpath("//button[@class=\"ant-btn administration__button-blue\"]")).click();
+    }
+
+    @Step("Нажать на кнопку сбросить")
+    public void resetButton(){
+        $(By.xpath("//button[@class=\"ant-btn administration__button-white\"]")).click();
+    }
 }

@@ -1,19 +1,23 @@
 package sapasoft.adm;
 
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
 import sapasoft.adm.services.PropertyDataReader;
 import sapasoft.adm.testconfigs.BaseSetings;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Регистрация сотрудника")
 public class RegistrationTest extends BaseSetings {
     //public String currentTestingEnv = System.getProperty("reg");
     //public String IIN = PropertyDataReader.getProperties(currentTestingEnv).getProperty("registration.iin");
     private String date=date1();
     private String iin="900522000608";
+    private String wrongIin="900522008396";
+    private String existIin="900522000607";
 
-  // @Test
+    @Test
     @DisplayName("Регистрация сотрудника")
     public void t1RegistrationUser() {
         Adm adm = new Adm();
@@ -28,6 +32,26 @@ public class RegistrationTest extends BaseSetings {
         adm.registrationUser().chooseRights();
         adm.registrationUser().checkThatButtonActive();
         adm.registrationUser().pressCancel();
+    }
+
+    @Test
+    @DisplayName("Попытка регистрации сотрудника, не зарегистрированного в базе")
+    public void t2RegistrationWrongIin() {
+        Adm adm = new Adm();
+        adm.registration();
+        adm.registrationUser().fillIIN(wrongIin);
+        adm.registrationUser().pressSearch();
+        adm.registrationUser().checkThatUserNotExist();
+    }
+
+    @Test
+    @DisplayName("Попытка регистрации ранее зарегистрированного сотрудника")
+    public void t3RegistrationExistUser() {
+        Adm adm = new Adm();
+        adm.registration();
+        adm.registrationUser().fillIIN(existIin);
+        adm.registrationUser().pressSearch();
+        adm.registrationUser().checkThatUserExist();
     }
 
 }

@@ -4,13 +4,15 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BaseSetings {
     protected String login= "admin";
     protected String password= "admin";

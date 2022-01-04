@@ -26,7 +26,7 @@ public class GroupsTest extends Base {
 
     // Создание новой группы
     @DisplayName("Добавление новой группы")
-   // @Test
+    @Test
     public void t1CreateNewGroup(){
         Ish ish = new Ish();
         ish.logIn(login, password);

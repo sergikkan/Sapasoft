@@ -92,16 +92,13 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         adm.rolesGroupsManagment().open();
         adm.rolesGroupsManagment().extendedSearch();
         adm.rolesGroupsManagment().fillSearchStatus(searchStatus);
-        //adm.rolesGroupsManagment().chooseSearchModule(existRolesGroupModule);
         adm.rolesGroupsManagment().chooseSearchDepartment(rolesGroupSearchDepartment);
         adm.rolesGroupsManagment().chooserolesGroupSearchSubdivision(searchSubdivision);
         adm.rolesGroupsManagment().applySearch();
-        //adm.rolesGroupsManagment().checkSearchModule(existRolesGroupModule);
         adm.rolesGroupsManagment().checkSearchStatus(searchStatus);
         adm.rolesGroupsManagment().checkSearchDepartment(rolesGroupSearchDepartment);
         adm.rolesGroupsManagment().checkSearchSubdivision(searchSubdivision);
         adm.logOut();
-        //Configuration.holdBrowserOpen = true;
     }
 
     @Test

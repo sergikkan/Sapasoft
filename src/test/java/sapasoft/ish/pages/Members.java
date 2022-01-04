@@ -14,7 +14,7 @@ public class Members {
     // Кнопки
     @Step("Открыть раздел участники")
     public void open(){
-        $(By.xpath("//div/ul/li[2]")).click();
+        $(By.xpath("//div/ul/li[4]")).click();
     }
 
     @Step("Добавить нового участника")

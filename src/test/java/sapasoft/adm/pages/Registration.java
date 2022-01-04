@@ -7,8 +7,7 @@ import sapasoft.adm.testconfigs.BaseSetings;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -70,5 +69,15 @@ public class Registration extends BaseSetings {
     @Step("Нажать кнопку отмена")
     public void pressCancel() {
         $(By.xpath("//button[@class=\"ant-btn administration__button-white\"]")).click();
+    }
+
+    @Step("Вывод сообщения, что пользователь не зарегистрирован в системе кадров")
+    public void checkThatUserNotExist() {
+        $(By.xpath("//div[@class=\"ant-notification-notice-message\"]")).shouldHave(text("Данный сотрудник не зарегистрирован в системе кадров"));
+    }
+
+    @Step("Вывод сообщения, что пользователь уже зарегистрирован")
+    public void checkThatUserExist() {
+        $(By.xpath("//div[@class=\"ant-notification-notice-message\"]")).shouldHave(text("Заявка была одобрена"));
     }
 }

@@ -9,17 +9,19 @@ import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
 import sapasoft.adm.testconfigs.BaseSetings;
 
+import static com.codeborne.selenide.Selenide.sleep;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел \"Подача дополнительной заявки на предоставление роли и прав\"")
 public class AdditionalApplicationTest extends BaseSetings {
 
-    String dateFrom =date();
+    String dateFrom = date();
 
 
-   // @Test
+    @Test
     @DisplayName("Подача дополнительной заявки на предоставление роли и прав")
-    public void t1AdditionalApplication(){
-        Adm adm =new Adm();
+    public void t1AdditionalApplication() {
+        Adm adm = new Adm();
         adm.logIn(login, password);
         adm.additionalApplication().open();
         adm.additionalApplication().choosePeriod(dateFrom);
@@ -30,6 +32,5 @@ public class AdditionalApplicationTest extends BaseSetings {
         adm.additionalApplication().agreementText();
         adm.additionalApplication().checkSignButton();
         adm.logOut();
-       // Configuration.holdBrowserOpen = true;
     }
 }

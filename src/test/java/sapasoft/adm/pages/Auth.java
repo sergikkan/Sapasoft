@@ -44,6 +44,7 @@ public class Auth extends BaseSetings {
 
     @Step("Открыть раздел регистрация")
     public Auth registration() {
+        closeWebDriver();
         open("/");
         $(By.xpath("//footer/div[@class=\"kc-portal-back\"]/a")).click();
 
