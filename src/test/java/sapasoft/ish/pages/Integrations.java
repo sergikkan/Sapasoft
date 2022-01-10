@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class Integrations {
 
     public void open(){
-        $(By.xpath("//div/ul/li[1]")).click();
+        $(By.xpath("//div/ul/li[5]")).click();
     }
 
     public void add() {

@@ -17,8 +17,6 @@ public class Auth extends BaseSetings {
     public Auth logIn(String login, String password) {
         closeWebDriver();
         open("/");
-       // $(By.xpath("//span[text()=\"Авторизация Stateless Keycloak\"]")).click();
-       // $(By.xpath("//input[@id=\"username\"]")).wait(10000);
         $(By.xpath("//input[@id=\"username\"]")).setValue(login);
         $(By.xpath("//input[@class ='btn-login-page']")).click();
         $(By.xpath("//button[@id=\"proceed-button\"]")).click();
@@ -26,7 +24,7 @@ public class Auth extends BaseSetings {
         $(By.xpath("//input[@id=\"kc-login\"]")).click();
         $(By.xpath("//button[@id=\"proceed-button\"]")).click();
         //refresh();
-        //$(By.xpath("//div/span[text()=\"Admin\"]")).shouldBe(Condition.visible);
+        $(By.xpath("//h1[text()=\"Главная\"]")).shouldBe(Condition.visible);
         $(By.xpath("//div[text()=\"Администрирование и мониторинг\"]")).click();
         $(By.xpath("//div/h1")).shouldHave(Condition.text("Администрирование и мониторинг"));
         return this;
