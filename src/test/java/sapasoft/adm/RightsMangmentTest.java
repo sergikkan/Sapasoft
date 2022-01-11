@@ -30,14 +30,14 @@ public class RightsMangmentTest extends BaseSetings {
 
     /*Тестовые данные*/
 
-    private String module = "АРМ ОГД"; //Название подсистемы/модуля при создании
+    private String module = "Портал"; //Название подсистемы/модуля при создании
     private String code = "new" + System.currentTimeMillis(); //Код права при создании
     private String rusName = "Право" + str();  //Наименование на русском и казахском
     private String engName = "right" + RandomStringUtils.randomAlphabetic(5); //Наименование на латинице при создании
     private String newRusName = "Право" + str();  //Наименование на русском и казахском при редактировании
     private String newEngName = "right" + RandomStringUtils.randomAlphabetic(5); //Наименование на латинице
     private String searchStatus = "Неактивна"; //Значение статуса в расширенном поиске
-    private String searchModule = "Кабинет налогоплательщика"; //Значение Модуля в расширенном поиске
+    private String searchModule = "Администрирование и мониторинг"; //Значение Модуля в расширенном поиске
     private String existCode = "666"; //Существующий код для проверки уникальности при создании
     private String existRusName = "Тестовое право шесть"; //Существующее имя для проверки уникальности при создании
     private String existEngName = "Testovoe pravo west"; //Существующее имя для проверки уникальности при создании
@@ -59,7 +59,7 @@ public class RightsMangmentTest extends BaseSetings {
         adm.rightsManagment().create();
         adm.rightsManagment().checkRightWasCreated(rusName);
         adm.logOut();
-        //Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
 
     }
 

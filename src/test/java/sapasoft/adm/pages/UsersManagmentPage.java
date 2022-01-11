@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 
 public class UsersManagmentPage {
@@ -103,6 +104,7 @@ public class UsersManagmentPage {
 
     @Step("Выбрать причину блокировки")
     public void reasonOfBlockingUser(String reason){
+        sleep(1000);
         $(By.xpath("//label[text()=\"Причина\"]/..//../div[2]//input")).click();
         $(By.xpath("//div[@title=\""+reason+"\"]")).click();
     }
