@@ -1,5 +1,7 @@
 package sapasoft.adm.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -50,8 +52,15 @@ public class Registration extends BaseSetings {
     @Step("Выбрать модуль")
     public void chooseModule(String module) {
         $(By.xpath("//label[text()=\"Подсистема/модуль\"]/../..//input")).click();
-        $(byText(""+module+"")).scrollIntoView(false);
-        $(By.xpath("//span[@title=\""+module+"\"]")).click();
+        int n=50;
+        int i=0;
+        while (element(Selectors.byXpath("//span[contains(@title,\"" + module + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//label[text()=\"Подсистема/модуль\"]/../..//input")).sendKeys(Keys.ARROW_DOWN);
+            i=i+1;
+            if(i==n)break;
+        }
+        $(By.xpath("//span[contains(@title,\"" + module + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + module + "\")]")).shouldBe(visible);
         $(By.xpath("//label[text()=\"Подсистема/модуль\"]/../..//input")).click();
     }
 

@@ -32,6 +32,7 @@ public class RegistrationTest extends BaseSetings {
         adm.registrationUser().chooseRights();
         adm.registrationUser().checkThatButtonActive();
         adm.registrationUser().pressCancel();
+        //Configuration.holdBrowserOpen = true;
     }
 
     @Test

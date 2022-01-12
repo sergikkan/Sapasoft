@@ -1,5 +1,7 @@
 package sapasoft.adm.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -8,6 +10,7 @@ import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.element;
 
 public class RolesGroupsManagmentPage {
 
@@ -55,15 +58,31 @@ public class RolesGroupsManagmentPage {
     @Step("Выбрать орган государственных доходов")
     public void chooseDepartment(String rolesGroupDepartment) {
         $(By.xpath("//span[@class=\"ant-input-group ant-input-group-compact\"]/div[2]//input")).click();
-        $(By.xpath("//div[@title=\"" + rolesGroupDepartment + "\"]")).click();
+        int n = 200;
+        int i = 0;
+        while (element(Selectors.byXpath("//div[contains(@title,\"" + rolesGroupDepartment + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//span[@class=\"ant-input-group ant-input-group-compact\"]/div[2]//input")).sendKeys(Keys.ARROW_DOWN);
+            i = i + 1;
+            if (i == n) break;
+        }
+        $(By.xpath("//div[contains(@title,\"" + rolesGroupDepartment + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + rolesGroupDepartment + "\")]")).shouldBe(visible);
 
     }
 
     @Step("Выбрать подразделение")
-    public void chooserolesGroupSubdivision() {
+    public void chooserolesGroupSubdivision(String rolesGroupSubdivision) {
         $(By.xpath("//div[@class=\"ant-modal-body\"]//label[text()=\"Подразделение\"]/../../div[2]")).shouldNotBe(disabled);
         $(By.xpath("//div[@class=\"ant-modal-body\"]//label[text()=\"Подразделение\"]/../../div[2]")).click();
-        $(By.xpath("//div[5]/div/div/div/div[2]/div[1]/div/div/div[1]")).click();
+        int n = 100;
+        int i = 0;
+        while (element(Selectors.byXpath("//div[contains(@title,\"" + rolesGroupSubdivision + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//div[@class=\"ant-modal-body\"]//label[text()=\"Подразделение\"]/../../div[2]//input")).sendKeys(Keys.ARROW_DOWN);
+            i = i + 1;
+            if (i == n) break;
+        }
+        element(Selectors.byXpath("//div[contains(@title,\"" + rolesGroupSubdivision + "\")]")).click();
+        element(Selectors.byXpath("//div[contains(@title,\"" + rolesGroupSubdivision + "\")]")).shouldBe(visible);
     }
 
     @Step("Выбрать должность")
@@ -170,17 +189,38 @@ public class RolesGroupsManagmentPage {
         $(By.xpath("//tbody/tr[2]/td[9]")).shouldHave(exactText(searchStatus));
     }
 
+    @Step("Выбрать подсистему/модуль в поиске")
     public void chooseSearchModule(String searchModule) {
         $(By.xpath("//label[@title=\"Подсистема/модуль\"]/ancestor::div[@class=\"ant-row ant-form-item\"]/div[2]")).click();
-        $(By.xpath("//span[@title=\"" + searchModule + "\"]")).click();
-        $(By.xpath("//span[@title=\"" + searchModule + "\"]")).shouldBe(visible);
+        int n = 50;
+        int i = 0;
+        while (element(Selectors.byXpath("//span[contains(@title,\"" + searchModule + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//label[@title=\"Подсистема/модуль\"]/ancestor::div[@class=\"ant-row ant-form-item\"]/div[2]//input")).sendKeys(Keys.ARROW_DOWN);
+            i = i + 1;
+            if (i == n) break;
+        }
+        $(By.xpath("//span[contains(@title,\"" + searchModule + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + searchModule + "\")]")).shouldBe(visible);
+
+    }
+
+    @Step("Проверка, что значение органа государственных доходов соответствует значению в расширенном поиске")
+    public void checkSearchModule(String searchModule) {
+        $(By.xpath("//span[text()=\"Подсистема/модуль\"]/div/div")).shouldHave(exactText(searchModule));
     }
 
     @Step("Выбрать орган государственных доходов в расширенном поиске")
     public void chooseSearchDepartment(String rolesGroupDepartment) {
         $(By.xpath("//span[text()=\"Наименование ОГД\"]/..//input")).click();
-        $(By.xpath("//div[@title=\"" + rolesGroupDepartment + "\"]")).click();
-
+        int n = 200;
+        int i = 0;
+        while (element(Selectors.byXpath("//div[contains(@title,\"" + rolesGroupDepartment + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//span[text()=\"Наименование ОГД\"]/..//input")).sendKeys(Keys.ARROW_DOWN);
+            i = i + 1;
+            if (i == n) break;
+        }
+        $(By.xpath("//div[contains(@title,\"" + rolesGroupDepartment + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + rolesGroupDepartment + "\")]")).shouldBe(visible);
     }
 
     @Step("Проверка, что значение органа государственных доходов соответствует значению в расширенном поиске")
@@ -193,7 +233,15 @@ public class RolesGroupsManagmentPage {
     public void chooserolesGroupSearchSubdivision(String searchSubdivision) {
         $(By.xpath("//label[text()=\"Подразделение\"]/../../div[2]")).shouldNotBe(disabled);
         $(By.xpath("//label[text()=\"Подразделение\"]/../../div[2]")).click();
-        $(By.xpath("//div[text()=\"" + searchSubdivision + "\"]")).click();
+        int n = 100;
+        int i = 0;
+        while (element(Selectors.byXpath("//div[contains(@title,\"" + searchSubdivision + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//label[text()=\"Подразделение\"]/../../div[2]//input")).sendKeys(Keys.ARROW_DOWN);
+            i = i + 1;
+            if (i == n) break;
+        }
+        element(Selectors.byXpath("//div[contains(@title,\"" + searchSubdivision + "\")]")).click();
+        element(Selectors.byXpath("//div[contains(@title,\"" + searchSubdivision + "\")]")).shouldBe(visible);
     }
 
     @Step("Проверка, что значение подразделения соответствует значению в расширенном поиске")

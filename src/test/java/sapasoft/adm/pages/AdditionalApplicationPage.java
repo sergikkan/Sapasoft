@@ -1,20 +1,24 @@
 package sapasoft.adm.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.element;
 
 public class AdditionalApplicationPage {
 
 
     @Step("Открыть раздел Подача дополнительной заявки на предоставление роли и прав")
-    public void open(){
+    public void open() {
         $(By.xpath("//div[@class='antd-pro-components-menu-page-index-items']/a[6]")).click();
         $(By.xpath("//div/h1")).shouldHave(text("Подача дополнительной заявки на предоставление роли и прав"));
     }
@@ -31,7 +35,15 @@ public class AdditionalApplicationPage {
     @Step("Выбрать подсистему/модуль")
     public void chooseModule(String module) {
         $(By.xpath("//label[text()=\"Подсистема/модуль\"]/../..//input")).click();
-        $(By.xpath("//span[@title=\""+module+"\"]")).click();
+        int n = 50;
+        int i = 0;
+        while (element(Selectors.byXpath("//span[contains(@title,\"" + module + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//label[text()=\"Подсистема/модуль\"]/../..//input")).sendKeys(Keys.ARROW_DOWN);
+            i = i + 1;
+            if (i == n) break;
+        }
+        $(By.xpath("//span[contains(@title,\"" + module + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + module + "\")]")).shouldBe(visible);
         $(By.xpath("//label[text()=\"Подсистема/модуль\"]/../..//input")).click();
     }
 
@@ -43,6 +55,7 @@ public class AdditionalApplicationPage {
 
     @Step("Выбрать роль")
     public void chooseRole() {
+        $(By.xpath("//div[text()=\"Доступные подсиcтемы (модули)/роли\"]/..//span[@class=\"ant-tree-checkbox-inner\"]")).shouldBe(visible);
         $(By.xpath("//div[text()=\"Доступные подсиcтемы (модули)/роли\"]/..//span[@class=\"ant-tree-checkbox-inner\"]")).click();
     }
 

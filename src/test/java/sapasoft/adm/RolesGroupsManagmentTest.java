@@ -23,9 +23,11 @@ public class RolesGroupsManagmentTest extends BaseSetings {
     private String rolesGroupEngName = "Roles group " + RandomStringUtils.randomAlphabetic(5);
     private String rolesGroupModule = "Лицевые счета";
     private String rolesGroupDepartment = "Комитет государственных доходов Министерства финансов Республики Казахстан";
-    private String rolesGroupSearchDepartment = "ДГД по Акмолинской области";
+    private String rolesGroupSubdivision= "Юридическое управление";
+
     private String searchStatus = "Активна";
-    private String existRolesGroupModule = "Лицевые счета";
+    private String searchRolesGroupModule = "Администрирование и мониторинг";
+    private String rolesGroupSearchDepartment = "ДГД по Акмолинской области";
     private String searchSubdivision = "Управление государственных услуг";
     private String newRolesGroupRusName = "Группа ролей " + str();
     private String newRolesGroupEngName = "Roles group " + RandomStringUtils.randomAlphabetic(5);
@@ -33,7 +35,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
     private String deactivationRolesGroup = "Группа ролей для деактивации";
 
 
-    //@Test
+    @Test
     @DisplayName("Создание новой группы ролей")
     public void t1CreateRolesGroup() {
         Adm adm = new Adm();
@@ -44,13 +46,14 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         adm.rolesGroupsManagment().chooseModule(rolesGroupModule);
         adm.rolesGroupsManagment().chooseDepartment(rolesGroupDepartment);
         adm.rolesGroupsManagment().fillNames(rolesGroupRusName, rolesGroupEngName);
-        adm.rolesGroupsManagment().chooserolesGroupSubdivision();
+        adm.rolesGroupsManagment().chooserolesGroupSubdivision(rolesGroupSubdivision);
         adm.rolesGroupsManagment().chooserolesGroupPosition();
         adm.rolesGroupsManagment().chooseRoles();
         adm.rolesGroupsManagment().create();
         adm.rolesGroupsManagment().checkRoleWasCreated();
         adm.rolesGroupsManagment().searchRolesGroup(rolesGroupRusName);
         adm.logOut();
+        //Configuration.holdBrowserOpen = true;
     }
 
     @Test
@@ -92,10 +95,14 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         adm.rolesGroupsManagment().open();
         adm.rolesGroupsManagment().extendedSearch();
         adm.rolesGroupsManagment().fillSearchStatus(searchStatus);
+        adm.rolesGroupsManagment().chooseSearchModule(searchRolesGroupModule);
         adm.rolesGroupsManagment().chooseSearchDepartment(rolesGroupSearchDepartment);
         adm.rolesGroupsManagment().chooserolesGroupSearchSubdivision(searchSubdivision);
         adm.rolesGroupsManagment().applySearch();
         adm.rolesGroupsManagment().checkSearchStatus(searchStatus);
+        adm.rolesGroupsManagment().openRolesGroup();
+        adm.rolesGroupsManagment().checkSearchModule(searchRolesGroupModule);
+        adm.rolesGroupsManagment().closeRolesGroup();
         adm.rolesGroupsManagment().checkSearchDepartment(rolesGroupSearchDepartment);
         adm.rolesGroupsManagment().checkSearchSubdivision(searchSubdivision);
         adm.logOut();
@@ -149,7 +156,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
         adm.rolesGroupsManagment().chooseModule(rolesGroupModule);
         adm.rolesGroupsManagment().chooseDepartment(rolesGroupDepartment);
         adm.rolesGroupsManagment().fillNames(rolesGroupRusName, rolesGroupEngName);
-        adm.rolesGroupsManagment().chooserolesGroupSubdivision();
+        adm.rolesGroupsManagment().chooserolesGroupSubdivision(rolesGroupSubdivision);
         adm.rolesGroupsManagment().chooserolesGroupPosition();
         adm.rolesGroupsManagment().chooseRoles();
         adm.rolesGroupsManagment().create();

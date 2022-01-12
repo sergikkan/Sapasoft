@@ -59,7 +59,7 @@ public class RightsMangmentTest extends BaseSetings {
         adm.rightsManagment().create();
         adm.rightsManagment().checkRightWasCreated(rusName);
         adm.logOut();
-        Configuration.holdBrowserOpen = true;
+        //Configuration.holdBrowserOpen = true;
 
     }
 

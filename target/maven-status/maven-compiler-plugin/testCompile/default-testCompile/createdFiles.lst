@@ -10,7 +10,6 @@ sapasoft\ish\pages\Groups.class
 sapasoft\adm\ApplicationManagementTest.class
 sapasoft\adm\RolesManagmentTest.class
 sapasoft\ish\Notifications.class
-sapasoft\ish\GroupsTest.class
 sapasoft\adm\pages\StaticalReportPage.class
 sapasoft\ish\pages\Members.class
 sapasoft\ish\SmsGroup.class
@@ -23,7 +22,6 @@ sapasoft\adm\services\PropertyDataReader.class
 sapasoft\adm\RightsMangmentTest.class
 sapasoft\adm\UsersManagmentTest.class
 sapasoft\ish\StuckJournals.class
-sapasoft\ish\MembersTest.class
 sapasoft\ish\pages\Integrations.class
 sapasoft\adm\RegistrationTest.class
 sapasoft\ish\pages\StuckJournals.class
@@ -31,4 +29,3 @@ sapasoft\adm\pages\ApplicationManagementPage.class
 sapasoft\adm\pages\RightsManagment.class
 sapasoft\ish\pages\Autorization.class
 sapasoft\adm\pages\RolesManagment.class
-sapasoft\ish\Integrations.class

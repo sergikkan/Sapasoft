@@ -1,5 +1,7 @@
 package sapasoft.adm.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -9,6 +11,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.element;
 
 public class RolesManagment {
 
@@ -41,14 +44,15 @@ public class RolesManagment {
     @Step("Выбрать модуль")
     public void chooseModule(String module) {
         $(By.xpath("//div[@class=\"ant-modal-body\"]//label[text()=\"Подсистема/модуль\"]/../..//input")).click();
-        if (module == "Отчетность" || module == "Регистрация налогоплательщиков и ККМ" || module == "АРМ ОГД" || module == "Кабинет налогоплательщика") {
-            $(By.xpath("//div[@class=\"rc-virtual-list-holder-inner\"]")).hover();
-            $(By.xpath("//div[@title=\"" + module + "\"]/ancestor::div[@class=\"rc-virtual-list-holder-inner\"]")).scrollIntoView(false);
-            $(By.xpath("//div[@title=\"" + module + "\"]")).click();
-        } else {
-            $(By.xpath("//div[@title=\"" + module + "\"]")).click();
+        int n=20;
+        int i=0;
+        while (element(Selectors.byXpath("//div[contains(@title,\"" + module + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//div[@class=\"ant-modal-body\"]//label[text()=\"Подсистема/модуль\"]/../..//input")).sendKeys(Keys.ARROW_DOWN);
+            i=i+1;
+            if(i==n)break;
         }
-        $(By.xpath("//span[@title=\"" + module + "\"]")).shouldBe(visible);
+        $(By.xpath("//div[contains(@title,\"" + module + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + module + "\")]")).shouldBe(visible);
     }
 
     @Step("Заполнить поле код")
@@ -212,15 +216,15 @@ public class RolesManagment {
     @Step("Выбрать значение модуля в поиске")
     public void chooseSearchModule(String searchModule) {
         $(By.xpath("//label[@title=\"Подсистема/модуль\"]/../../div[2]//input")).click();
-        if (searchModule == "Отчетность" || searchModule == "Регистрация налогоплательщиков и ККМ" || searchModule == "АРМ ОГД" || searchModule == "Кабинет налогоплательщика") {
-            $(By.xpath("//div[@title=\"Лицевые счета\"]/..")).hover();
-            $(By.xpath("//div[@title=\"" + searchModule + "\"]")).scrollIntoView(false);
-            $(By.xpath("//div[@title=\"" + searchModule + "\"]")).click();
-        } else {
-            $(By.xpath("//div[@title=\"" + searchModule + "\"]")).click();
+        int n=20;
+        int i=0;
+        while (element(Selectors.byXpath("//div[contains(@title,\"" + searchModule + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//label[@title=\"Подсистема/модуль\"]/../../div[2]//input")).sendKeys(Keys.ARROW_DOWN);
+            i=i+1;
+            if(i==n)break;
         }
-
-        $(By.xpath("//span[@title=\"" + searchModule + "\"]")).shouldBe(visible);
+        $(By.xpath("//div[contains(@title,\"" + searchModule + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + searchModule + "\")]")).shouldBe(visible);
     }
 
     @Step("Выбрать значение уровня в поиске")

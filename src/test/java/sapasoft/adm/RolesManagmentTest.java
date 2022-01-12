@@ -20,7 +20,7 @@ public class RolesManagmentTest extends BaseSetings {
 
     /*Тестовые данные*/
 
-    private String rolesModule = "АРМ ОГД"; //Название подсистемы/модуля при создании
+    private String rolesModule = "Администрирование и мониторинг"; //Название подсистемы/модуля при создании
     private String rolesCode = "new" + System.currentTimeMillis(); //Код роли при создании
     private String rolesRusName = "Роль " + str();  //Наименование на русском и казахском при создании
     private String rolesEngName = "Role " + RandomStringUtils.randomAlphabetic(5); //Наименование на латинице при создании
@@ -61,7 +61,6 @@ public class RolesManagmentTest extends BaseSetings {
     @Test
     @DisplayName("Деактивация и активация роли")
     public void t2DeactivateActivateRole() {
-
         Adm adm = new Adm();
         adm.logIn(login, password);
         adm.rolesManagment().open();
@@ -173,7 +172,7 @@ public class RolesManagmentTest extends BaseSetings {
     }
 
     @Test
-    @DisplayName("Проверка обязательных  полей при создании роли")
+    @DisplayName("Проверка обязательных полей при создании роли")
     public void t8CheckRequiredFields() {
         Adm adm = new Adm();
         adm.logIn(login, password);

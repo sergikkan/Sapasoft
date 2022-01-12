@@ -18,6 +18,9 @@ public class UsersManagmentTest extends BaseSetings {
     private String blockingDate=  date();
     private String existLogin = "6001_testpost7";
     private String reasonOfBlocking = "Отпуск";
+    private String searchModule = "Администрирование и мониторинг";
+    private String usersDepartment = "Комитет государственных доходов Министерства финансов Республики Казахстан";
+
 
     @DisplayName("Поиск пользователя")
     @Test
@@ -45,7 +48,21 @@ public class UsersManagmentTest extends BaseSetings {
         adm.usersManagment().fillLogin(existLogin);
         adm.usersManagment().applySearch();
         adm.usersManagment().checkLogin(existLogin);
-        adm.logOut();
+        adm.usersManagment().extendedSearchUser();
+        adm.usersManagment().resetSearch();
+        adm.usersManagment().extendedSearchUser();
+        adm.usersManagment().chooseSearchModule(searchModule);
+        adm.usersManagment().applySearch();
+        adm.usersManagment().openUser();
+        adm.usersManagment().checksearchModule(searchModule);
+        adm.usersManagment().closeUserPage();
+//        adm.usersManagment().extendedSearchUser();
+//        adm.usersManagment().resetSearch();
+//        adm.usersManagment().extendedSearchUser();
+//        adm.usersManagment().chooseSearchDepartment(usersDepartment);
+//        adm.usersManagment().checkSearchDepartment(usersDepartment);
+        //adm.logOut();
+        Configuration.holdBrowserOpen = true;
     }
 
     @DisplayName("Блокировка пользователя")

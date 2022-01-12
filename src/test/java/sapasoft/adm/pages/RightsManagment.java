@@ -30,15 +30,13 @@ public class RightsManagment {
     }
 
 
-    @Step("Заполняем поля наименования на русском, казахском и казахском (латиница)")
+    @Step("Заполняем поля наименования на русском, казахском и казахском (латиница), английском")
     public void fillNames(String rusName, String engName) {
         $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         $(By.xpath("//label[text()=\"Наименование на английском\"]/parent::div/parent::div//input")).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
-        //Selenide.sleep(1000);
         $(By.xpath("//label[text()=\"Наименование на русском\"]/parent::div/parent::div//input")).setValue(rusName);
-        // Selenide.sleep(1000);
         $(By.xpath("//label[text()=\"Наименование на казахском\"]/parent::div/parent::div//input")).sendKeys(rusName);
         $(By.xpath("//label[text()=\"Наименование на казахском (латиница)\"]/parent::div/parent::div//input")).sendKeys(engName);
         $(By.xpath("//label[text()=\"Наименование на английском\"]/parent::div/parent::div//input")).sendKeys(engName);
@@ -49,13 +47,13 @@ public class RightsManagment {
         $(By.xpath("//div[@class=\"ant-modal-content\"]//input[@type=\"search\"]")).click();
         int n=20;
         int i=0;
-        while (element(Selectors.byXpath("//div[@title=\"" + module + "\"]")).is(Condition.not(visible))) {
+        while (element(Selectors.byXpath("//div[contains(@title,\"" + module + "\")]")).is(Condition.not(visible))) {
             $(By.xpath("//div[@class=\"ant-modal-content\"]//input[@type=\"search\"]")).sendKeys(Keys.ARROW_DOWN);
             i=i+1;
             if(i==n)break;
         }
-        element(Selectors.byXpath("//div[@title=\"" + module + "\"]")).click();
-        $(By.xpath("//span[@title=\"" + module + "\"]")).shouldBe(visible);
+        element(Selectors.byXpath("//div[contains(@title,\"" + module + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + module + "\")]")).shouldBe(visible);
     }
 
 
@@ -132,7 +130,7 @@ public class RightsManagment {
     public void checkThatCodeExist() {
         $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldBe(visible);
         $(By.xpath("//*[@class=\"ant-notification-notice-message\"]")).shouldHave(text("Право с таким кодом уже существует в системе"));
-        //$(byText("Право с таким кодом уже существует в системе")).shouldBe(visible);
+
     }
 
     @Step("Проверка что право с таким именем уже существует")
@@ -171,13 +169,13 @@ public class RightsManagment {
         $(By.xpath("//label[@title=\"Подсистема/модуль\"]/../../div[2]//input")).click();
         int n=20;
         int i=0;
-        while (element(Selectors.byXpath("//div[@title=\"" + searchModule + "\"]")).is(Condition.not(visible))) {
+        while (element(Selectors.byXpath("//div[contains(@title,\"" + searchModule + "\")]")).is(Condition.not(visible))) {
             $(By.xpath("//label[@title=\"Подсистема/модуль\"]/../../div[2]//input")).sendKeys(Keys.ARROW_DOWN);
             i=i+1;
             if (i==n)break;
         }
-        element(Selectors.byXpath("//div[@title=\"" + searchModule + "\"]")).click();
-        $(By.xpath("//span[@title=\"" + searchModule + "\"]")).shouldBe(visible);
+        element(Selectors.byXpath("//div[contains(@title,\"" + searchModule + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + searchModule + "\")]")).shouldBe(visible);
     }
 
 

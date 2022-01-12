@@ -1,5 +1,7 @@
 package sapasoft.adm.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.FixMethodOrder;
@@ -9,8 +11,7 @@ import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class UsersManagmentPage {
@@ -44,14 +45,48 @@ public class UsersManagmentPage {
 
     public void chooseSearchModule(String searchModule){
         $(By.xpath("//label[@title=\"Подсистема/модуль\"]/ancestor::div[@class=\"ant-row ant-form-item\"]/div[2]")).click();
-        $(By.xpath("//span[@title=\""+searchModule+"\"]")).click();
+        int n = 50;
+        int i = 0;
+        while (element(Selectors.byXpath("//span[contains(@title,\"" + searchModule + "\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//label[@title=\"Подсистема/модуль\"]/ancestor::div[@class=\"ant-row ant-form-item\"]/div[2]//input")).sendKeys(Keys.ARROW_DOWN);
+            i = i + 1;
+            if (i == n) break;
+        }
+        $(By.xpath("//span[contains(@title,\"" + searchModule + "\")]")).click();
+        $(By.xpath("//span[contains(@title,\"" + searchModule + "\")]")).shouldBe(visible);
+    }
 
-        // $(By.xpath("//div[@class=\"ant-modal-body\"]//div[@class=\"ant-select-selection-overflow\"]")).click();
-        $(By.xpath("//span[@title=\""+searchModule+"\"]")).shouldBe(visible);
+    public void checksearchModule(String searchModule) {
+        $(By.xpath("//span[contains(@title,\"" + searchModule + "\")]")).shouldBe(exist);
     }
 
     @Step("Выбрать орган государственных доходов в расширенном поиске")
-    public void chooseSearchDepartment(String rolesGroupDepartment) {
+    public void chooseSearchDepartment(String usersDepartment) {
+        $(By.xpath("//span[text()=\"Наименование ОГД\"]/..//input")).click();
+        int n = 200;
+        int i = 0;
+        //while (element(Selectors.byXpath("//div[contains(text(),\"" + usersDepartment + "\")]")).is(Condition.not(visible))) {
+        while (element(Selectors.byXpath("//div[contains(text(),\"Комитет государственных доходов Министерства финансов Республики Казахстан\")]")).is(Condition.not(visible))) {
+            $(By.xpath("//span[text()=\"Наименование ОГД\"]/..//input")).sendKeys(Keys.ARROW_DOWN);
+            i = i + 1;
+            if (i == n) break;
+        }
+       // $(By.xpath("//div[contains(text(),\"" + usersDepartment + "\")]")).click();
+        $(By.xpath("//div[contains(text(),\"Комитет государственных доходов Министерства финансов Республики Казахстан\")]")).click();
+        $(By.xpath("//span[contains(text(),\"" + usersDepartment + "\")]")).shouldBe(visible);
+    }
+
+    @Step("Проверка, что значение органа государственных доходов соответствует значению в расширенном поиске")
+    public void checkSearchDepartment(String searchDepartment) {
+        $(By.xpath("//tbody/tr[2]/td[7]")).shouldHave(exactText(searchDepartment));
+
+    }
+
+
+
+
+    @Step("Выбрать орган государственных доходов в расширенном поиске")
+    public void chooseSearchf6Department(String rolesGroupDepartment) {
         $(By.xpath("//span[text()=\"Наименование ОГД\"]/..//input")).click();
 
         $(By.xpath("//div[@title=\""+rolesGroupDepartment+"\"]")).click();
@@ -150,6 +185,8 @@ public class UsersManagmentPage {
     public void checkLogin(String existLogin){
         $(By.xpath("//tbody/tr[2]/td[1]")).shouldHave(text(existLogin));
     }
+
+
 }
 
 
