@@ -45,7 +45,7 @@ public class RightsMangmentTest extends BaseSetings {
     private String editName = "Право для редактирования Тест";
 
 
-    @Test
+    //@Test
     @DisplayName("Создание нового права")
     public void t1CreateNewRight() {
         Adm adm = new Adm();

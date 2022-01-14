@@ -35,7 +35,7 @@ public class RolesGroupsManagmentTest extends BaseSetings {
     private String deactivationRolesGroup = "Группа ролей для деактивации";
 
 
-    @Test
+    //@Test
     @DisplayName("Создание новой группы ролей")
     public void t1CreateRolesGroup() {
         Adm adm = new Adm();

@@ -63,22 +63,23 @@ public class UsersManagmentPage {
     @Step("Выбрать орган государственных доходов в расширенном поиске")
     public void chooseSearchDepartment(String usersDepartment) {
         $(By.xpath("//span[text()=\"Наименование ОГД\"]/..//input")).click();
+
         int n = 200;
         int i = 0;
-        //while (element(Selectors.byXpath("//div[contains(text(),\"" + usersDepartment + "\")]")).is(Condition.not(visible))) {
-        while (element(Selectors.byXpath("//div[contains(text(),\"Комитет государственных доходов Министерства финансов Республики Казахстан\")]")).is(Condition.not(visible))) {
+        while (element(Selectors.byXpath("//div[contains(text(),\"" + usersDepartment + "\")]")).is(Condition.not(visible))) {
+        //while (element(Selectors.byXpath("//div[contains(text(),\"Комитет государственных доходов Министерства финансов Республики Казахстан\")]")).is(Condition.not(visible))) {
+            System.out.println($(By.xpath("/html/body/div[3]/div/div/div/div[2]/div[1]/div/div/div[1]/div")).getText());
             $(By.xpath("//span[text()=\"Наименование ОГД\"]/..//input")).sendKeys(Keys.ARROW_DOWN);
             i = i + 1;
             if (i == n) break;
         }
-       // $(By.xpath("//div[contains(text(),\"" + usersDepartment + "\")]")).click();
-        $(By.xpath("//div[contains(text(),\"Комитет государственных доходов Министерства финансов Республики Казахстан\")]")).click();
+        $(By.xpath("//div[contains(text(),\"" + usersDepartment + "\")]")).click();
         $(By.xpath("//span[contains(text(),\"" + usersDepartment + "\")]")).shouldBe(visible);
     }
 
     @Step("Проверка, что значение органа государственных доходов соответствует значению в расширенном поиске")
     public void checkSearchDepartment(String searchDepartment) {
-        $(By.xpath("//tbody/tr[2]/td[7]")).shouldHave(exactText(searchDepartment));
+        $(By.xpath("//tbody/tr[2]/td[6]")).shouldHave(exactText(searchDepartment));
 
     }
 

@@ -40,7 +40,7 @@ public class RolesManagmentTest extends BaseSetings {
     private String editRoleLevel = "ДГД"; //уровень для проверки при редактировании
 
 
-    @Test
+    //@Test
     @DisplayName("Создание роли")
     public void t1CreateNewRole() {
         Adm adm = new Adm();
