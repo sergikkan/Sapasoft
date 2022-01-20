@@ -12,6 +12,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+
+import static com.codeborne.selenide.FileDownloadMode.PROXY;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BaseSetings {
     protected String login= "admin";
@@ -27,8 +30,10 @@ public class BaseSetings {
     {
 
         Configuration.baseUrl = "https://arm.sapasoft.kz";
-        Configuration.timeout= 30000;
+        Configuration.timeout= 8000;
         Configuration.startMaximized = true;
+       // Configuration.proxyEnabled = true;
+        //Configuration.fileDownload = PROXY;
     }
 
     /*Генерация случайной строки русских букв*/
