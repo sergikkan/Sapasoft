@@ -64,4 +64,9 @@ public class Adm extends BaseSetings {
         StatisticReportRulesPage statisticReportRulesPage = new StatisticReportRulesPage();
         return statisticReportRulesPage;
     }
+
+    public StatisticReportStatisticPage statisticReportStatistic (){
+        StatisticReportStatisticPage statisticReportStatisticPage = new StatisticReportStatisticPage();
+        return statisticReportStatisticPage;
+    }
 }
