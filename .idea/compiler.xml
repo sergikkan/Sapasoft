@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="isna" target="1.5" />
+      <module name="isna" target="1.8" />
       <module name="selenide-allure-junit" target="11" />
     </bytecodeTargetLevel>
   </component>
