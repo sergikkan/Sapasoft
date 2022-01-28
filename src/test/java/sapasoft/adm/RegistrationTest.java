@@ -1,5 +1,6 @@
 package sapasoft.adm;
 
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

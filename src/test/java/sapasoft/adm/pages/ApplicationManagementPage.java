@@ -18,6 +18,7 @@ public class ApplicationManagementPage {
 
     @Step("Открыть заявку для просмотра")
     public void openApplication(){
+        $(By.xpath("//tbody/tr[1]/td[2]")).shouldBe(exist);
         $(By.xpath("//tbody/tr[1]")).click();
         $(By.xpath("//div[@class=\"ant-modal-body\"]")).shouldBe(visible);
 
