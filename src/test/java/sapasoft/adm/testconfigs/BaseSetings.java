@@ -31,7 +31,7 @@ public class BaseSetings {
 
         Configuration.baseUrl = "https://arm.sapasoft.kz";
         Configuration.timeout= 8000;
-        Configuration.startMaximized = true;
+        //Configuration.startMaximized = true;
        // Configuration.proxyEnabled = true;
         //Configuration.fileDownload = PROXY;
     }
