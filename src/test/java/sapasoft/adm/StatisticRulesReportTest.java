@@ -12,12 +12,13 @@ import sapasoft.adm.testconfigs.BaseSetings;
 @DisplayName("Раздел Статистические отчеты, отчет по правам")
 public class StatisticRulesReportTest extends BaseSetings {
 
-    String whoRegister = "naik";
+    String  whoRegister = "naik";
     String status = "Активна";
     String dateFrom = "18.10.2021";
     String dateTo = "20.10.2021";
     String module = "Лицевые счета";
     String rulesCode = "LS_06";
+
 
     @Test
     @DisplayName("Открыть отчет по правам")
