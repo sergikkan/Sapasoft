@@ -32,6 +32,7 @@ public class BaseSetings {
         Configuration.baseUrl = "https://arm.sapasoft.kz";
         Configuration.timeout= 8000;
         Configuration.browserSize = "1920x1080";
+        Configuration.headless = true;
         //Configuration.startMaximized = true;
        // Configuration.proxyEnabled = true;
         //Configuration.fileDownload = PROXY;
