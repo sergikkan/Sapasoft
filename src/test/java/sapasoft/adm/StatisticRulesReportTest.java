@@ -31,7 +31,7 @@ public class StatisticRulesReportTest extends BaseSetings {
         // Configuration.holdBrowserOpen = true;
     }
 
-    //@Test
+    @Test
     @DisplayName("Отчет по правам, отфильтрованный по полю кем зарегистрирован")
     public void t2whoRegisterSearch() {
         Adm adm = new Adm();
@@ -45,7 +45,7 @@ public class StatisticRulesReportTest extends BaseSetings {
 
     }
 
-    //@Test // ОШИБКИ ПРИ ВЫБОРЕ СТАТУСА
+    @Test // ОШИБКИ ПРИ ВЫБОРЕ СТАТУСА
     @DisplayName("Отчет по правам, отфильтрованный по статусу")
     public void t3StatusSearch() {
         Adm adm = new Adm();
@@ -58,7 +58,7 @@ public class StatisticRulesReportTest extends BaseSetings {
         adm.logOut();
     }
 
-    //@Test
+    @Test
     @DisplayName("Отчет по правам, отфильтрованный по дате регистрации")
     public void t4checkDateSearch() {
         Adm adm = new Adm();
@@ -72,7 +72,7 @@ public class StatisticRulesReportTest extends BaseSetings {
         //Configuration.holdBrowserOpen = true;
     }
 
-   // @Test
+    @Test
     @DisplayName("Отчет по правам, отфильтрованный по полю Подсистема/модуль")
     public void t5checkModuleSearch() {
         Adm adm = new Adm();
@@ -84,7 +84,7 @@ public class StatisticRulesReportTest extends BaseSetings {
         adm.logOut();
     }
 
-    //@Test
+    @Test
     @DisplayName("Отчет по правам, отфильтрованный по Коду права")
     public void t6checkRulesCode() {
         Adm adm = new Adm();
