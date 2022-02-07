@@ -18,7 +18,7 @@ import static com.codeborne.selenide.FileDownloadMode.PROXY;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BaseSetings {
     protected String login= "admin";
-    protected String password= "admin";
+    protected String password= "I$NA43mp";
 
     //public String base = System.getProperty("base");
     //public String url = PropertyDataReader.getProperties(base).getProperty("main.url");
