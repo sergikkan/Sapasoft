@@ -5,11 +5,10 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
-import sapasoft.adm.testconfigs.BaseSetings;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел Статистические отчеты, Статистичский отчет")
-public class StatisticReportStatisticTest extends BaseSetings {
+public class StatisticReportStatisticTest extends BaseTest {
 
     String userLogin = "kgd_rib";
     String userName = "Генадий";
@@ -29,7 +28,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Открыть статистический отчет")
     public void t1OpenStatisticReport() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.logOut();
@@ -39,7 +38,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Статистистический отчет, отфильтрованный по учетной записи")
     public void t2UserLoginSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.statisticReportStatistic().fillUserlogin(userLogin);
@@ -52,7 +51,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Статистистический отчет, отфильтрованный по ФИО")
     public void t3NameSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.statisticReportStatistic().fillName(userName);
@@ -74,7 +73,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Статистистический отчет отфильтрованный по полю IP адрес")
     public void t4ipAdressSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.statisticReportStatistic().fillIPAdress(ipAdress);
@@ -87,7 +86,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Статистистический отчет, отфильтрованный по дате входа")
     public void t5checkDateSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.statisticReportStatistic().chooseDates(dateFrom, dateTo);
@@ -100,7 +99,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Статистистический отчет, отфильтрованный по полю Код права")
     public void t6checkRulesCode() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.statisticReportStatistic().chooseSearchModule(module);
@@ -115,7 +114,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Статистистический отчет, отфильтрованный по полю Орган государственных доходов")
     public void t7checkDepartment() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.statisticReportStatistic().chooseSearchDepartment(department);
@@ -128,7 +127,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Статистистический отчет, отфильтрованный по подразделению")
     public void t8checkSubdivision() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.statisticReportStatistic().chooseSearchDepartment(department);
@@ -142,7 +141,7 @@ public class StatisticReportStatisticTest extends BaseSetings {
     @DisplayName("Статистистический отчет, отфильтрованный по должности")
     public void t9checkPosition() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticReportStatistic().open();
         adm.statisticReportStatistic().openReport();
         adm.statisticReportStatistic().chooseSearchDepartment(department);

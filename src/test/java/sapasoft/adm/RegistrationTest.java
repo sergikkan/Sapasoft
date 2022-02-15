@@ -1,16 +1,14 @@
 package sapasoft.adm;
 
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
-import sapasoft.adm.services.PropertyDataReader;
-import sapasoft.adm.testconfigs.BaseSetings;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Регистрация сотрудника")
-public class RegistrationTest extends BaseSetings {
+public class RegistrationTest extends BaseTest {
     //public String currentTestingEnv = System.getProperty("reg");
     //public String IIN = PropertyDataReader.getProperties(currentTestingEnv).getProperty("registration.iin");
     private String date=date1();

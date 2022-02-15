@@ -3,11 +3,9 @@ package sapasoft.adm.pages;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import sapasoft.adm.testconfigs.BaseSetings;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
 
 public class Auth extends BaseSetings {
 
@@ -15,7 +13,6 @@ public class Auth extends BaseSetings {
 
     @Step("Авторизация в системе")
     public Auth logIn(String login, String password) {
-        closeWebDriver();
         open("/");
         $(By.xpath("//input[@id=\"username\"]")).setValue(login);
         $(By.xpath("//input[@class ='btn-login-page']")).click();

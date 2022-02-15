@@ -1,16 +1,14 @@
 package sapasoft.adm;
 
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
-import sapasoft.adm.testconfigs.BaseSetings;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел Статистические отчеты, отчет по правам")
-public class StatisticRulesReportTest extends BaseSetings {
+public class StatisticRulesReportTest extends BaseTest {
 
     String  whoRegister = "naik";
     String status = "Активна";
@@ -24,7 +22,7 @@ public class StatisticRulesReportTest extends BaseSetings {
     @DisplayName("Открыть отчет по правам")
     public void t1openRightsReport() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticRulesReport().open();
         adm.statisticRulesReport().openRules();
         adm.logOut();
@@ -35,7 +33,7 @@ public class StatisticRulesReportTest extends BaseSetings {
     @DisplayName("Отчет по правам, отфильтрованный по полю кем зарегистрирован")
     public void t2whoRegisterSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticRulesReport().open();
         adm.statisticRulesReport().openRules();
         adm.statisticRulesReport().fillWhoRegister(whoRegister);
@@ -49,7 +47,7 @@ public class StatisticRulesReportTest extends BaseSetings {
     @DisplayName("Отчет по правам, отфильтрованный по статусу")
     public void t3StatusSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticRulesReport().open();
         adm.statisticRulesReport().openRules();
         adm.statisticRulesReport().chooseStatus(status);
@@ -62,7 +60,7 @@ public class StatisticRulesReportTest extends BaseSetings {
     @DisplayName("Отчет по правам, отфильтрованный по дате регистрации")
     public void t4checkDateSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticRulesReport().open();
         adm.statisticRulesReport().openRules();
         adm.statisticRulesReport().chooseDates(dateFrom, dateTo);
@@ -76,7 +74,7 @@ public class StatisticRulesReportTest extends BaseSetings {
     @DisplayName("Отчет по правам, отфильтрованный по полю Подсистема/модуль")
     public void t5checkModuleSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticRulesReport().open();
         adm.statisticRulesReport().openRules();
         adm.statisticRulesReport().chooseSearchModule(module);
@@ -88,7 +86,7 @@ public class StatisticRulesReportTest extends BaseSetings {
     @DisplayName("Отчет по правам, отфильтрованный по Коду права")
     public void t6checkRulesCode() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticRulesReport().open();
         adm.statisticRulesReport().openRules();
         adm.statisticRulesReport().chooseSearchModule(module);

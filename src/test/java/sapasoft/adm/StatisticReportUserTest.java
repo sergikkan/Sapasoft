@@ -5,11 +5,10 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
-import sapasoft.adm.testconfigs.BaseSetings;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел Статистические отчеты, отчет по пользователям")
-public class StatisticReportUserTest extends BaseSetings {
+public class StatisticReportUserTest extends BaseTest {
 
     /*Данные для отчета пользователям*/
     String userLogin = "fdfdfdf";
@@ -29,7 +28,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Открыть отчет по пользователям")
     public void t1UsersReport() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.logOut();
@@ -40,7 +39,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по учетной записи")
     public void t2UserLoginSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().fillUsername(userLogin);
@@ -52,7 +51,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по ФИО")
     public void t3NameSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().fillName(userName);
@@ -65,7 +64,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по полю кем зарегистрирован")
     public void t4whoRegisterSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().fillWhoRegister(whoRegister);
@@ -78,7 +77,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по полю IP адрес")
     public void t5ipAdressSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().fillIPAdress(ipAdress);
@@ -91,7 +90,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по статусу")
     public void t6StatusSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().chooseStatus(status);
@@ -104,7 +103,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по дате регистрации")
     public void t7checkDateSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().chooseDates(dateFrom, dateTo);
@@ -117,7 +116,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по полю Подсистема/модуль")
     public void t8checkModuleSearch() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().chooseSearchModule(module);
@@ -129,7 +128,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по типу пользователя")
     public void t9checkUserType() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().chooseUserType(userType);
@@ -143,7 +142,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по полю Орган государственных доходов")
     public void t10checkDepartment() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().chooseSearchDepartment(department);
@@ -157,7 +156,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по подразделению")
     public void t11checkSubdivision() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().chooseSearchDepartment(department);
@@ -171,7 +170,7 @@ public class StatisticReportUserTest extends BaseSetings {
     @DisplayName("Отчет по пользователям, отфильтрованный по должности")
     public void t12checkPosition() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.statisticUserReport().open();
         adm.statisticUserReport().openUsers();
         adm.statisticUserReport().chooseSearchDepartment(department);
@@ -187,7 +186,7 @@ public class StatisticReportUserTest extends BaseSetings {
 //    @DisplayName("Открыть отчет по действиям администраторов")
 //    public void t4RightsReport(){
 //        Adm adm =new Adm();
-//        adm.logIn(login, password);
+//        adm.logIn(LOGIN, PASSWORD);
 //        adm.staticalReport().open();
 //        adm.staticalReport().openAdmins();
 //

@@ -5,17 +5,12 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.By;
 import sapasoft.adm.pages.Adm;
-import sapasoft.adm.testconfigs.BaseSetings;
-
-import static com.codeborne.selenide.Selenide.$;
-import static java.lang.Thread.sleep;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел \"Управление заявками\"")
-public class ApplicationManagementTest extends BaseSetings {
+public class ApplicationManagementTest extends BaseTest {
 
     //Тестовые данные
     private String searchLine = "861023450579"; // Поиск по ИИН или ФИО
@@ -37,7 +32,7 @@ public class ApplicationManagementTest extends BaseSetings {
     @DisplayName("Просмотр заявки")
     public void t1ViewApplication(){
         Adm adm =new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.applicationManagement().open();
         adm.applicationManagement().openApplication();
         adm.applicationManagement().cancelButton();
@@ -49,7 +44,7 @@ public class ApplicationManagementTest extends BaseSetings {
     @DisplayName("Поиск заявки по наименованию или ИИН")
     public void t2SearchApplication() {
         Adm adm =new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.applicationManagement().open();
         adm.applicationManagement().searchLine(searchLine);
         adm.logOut();
@@ -59,7 +54,7 @@ public class ApplicationManagementTest extends BaseSetings {
     @DisplayName("Расширенный поиск заявки")
     public void t3ExtendedSearchApplication() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.applicationManagement().open();
         adm.applicationManagement().extendedSearch();
         adm.applicationManagement().typeOfApplication(typeOfApplication);
@@ -77,7 +72,7 @@ public class ApplicationManagementTest extends BaseSetings {
     @DisplayName("Согласование заявки администратором")
     public void t4ApprovalApplicationAdmin() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.applicationManagement().open();
         adm.applicationManagement().extendedSearch();
         adm.applicationManagement().status("На согласовании у администратора");

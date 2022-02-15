@@ -1,17 +1,14 @@
 package sapasoft.adm;
 
-import com.codeborne.selenide.Configuration;
-import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
-import sapasoft.adm.testconfigs.BaseSetings;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел \"Управление пользователями\"")
-public class UsersManagmentTest extends BaseSetings {
+public class UsersManagmentTest extends BaseTest {
 
 
     private String userName= "Сергей7";
@@ -28,7 +25,7 @@ public class UsersManagmentTest extends BaseSetings {
     @Test
     public void t1Search(){
         Adm adm= new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.usersManagment().open();
         adm.usersManagment().searchUser(userName);
         adm.logOut();
@@ -38,7 +35,7 @@ public class UsersManagmentTest extends BaseSetings {
     @Test
     public void t2ExtendedSearchStatus() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.usersManagment().open();
         adm.usersManagment().extendedSearchUser();
         adm.usersManagment().fillSearchStatus("Активна");
@@ -51,7 +48,7 @@ public class UsersManagmentTest extends BaseSetings {
     @Test
     public void t3ExtendedSearchLogin() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.usersManagment().open();
         adm.usersManagment().extendedSearchUser();
         adm.usersManagment().fillLogin(existLogin);
@@ -64,7 +61,7 @@ public class UsersManagmentTest extends BaseSetings {
     @Test
     public void t4ExtendedSearchModule() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.usersManagment().open();
         adm.usersManagment().extendedSearchUser();
         adm.usersManagment().chooseSearchModule(searchModule);
@@ -79,7 +76,7 @@ public class UsersManagmentTest extends BaseSetings {
     @Test
     public void t5ExtendedSearchDepartment() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.usersManagment().open();
         adm.usersManagment().extendedSearchUser();
         adm.usersManagment().chooseSearchDepartment(usersDepartment);
@@ -93,7 +90,7 @@ public class UsersManagmentTest extends BaseSetings {
     @Test
     public void t5ExtendedSearchSubdivision() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.usersManagment().open();
         adm.usersManagment().extendedSearchUser();
         adm.usersManagment().chooseSearchDepartment(usersDepartment);
@@ -108,7 +105,7 @@ public class UsersManagmentTest extends BaseSetings {
     @Test
     public void t6ExtendedSearchPosition() {
         Adm adm = new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.usersManagment().open();
         adm.usersManagment().extendedSearchUser();
         adm.usersManagment().chooseSearchDepartment(usersDepartment);
@@ -125,7 +122,7 @@ public class UsersManagmentTest extends BaseSetings {
     @Test
     public void t7BlockUnblockUser(){
         Adm adm= new Adm();
-        adm.logIn(login, password);
+        adm.logIn(LOGIN, PASSWORD);
         adm.usersManagment().open();
         adm.usersManagment().searchUser(userName);
         adm.usersManagment().checkSearchStatus("Активна");

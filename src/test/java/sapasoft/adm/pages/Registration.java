@@ -10,8 +10,8 @@ import sapasoft.adm.testconfigs.BaseSetings;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.element;
 
 public class Registration extends BaseSetings {
 

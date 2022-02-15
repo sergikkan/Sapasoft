@@ -6,14 +6,11 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import sapasoft.adm.pages.Adm;
-import sapasoft.adm.testconfigs.BaseSetings;
-
-
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @DisplayName("Раздел Статистические отчеты, отчет по ролям")
-public class StatisticReportRolesTest extends BaseSetings{
+public class StatisticReportRolesTest extends BaseTest{
 
         /*Данные для отчета пользователям*/
 
@@ -30,7 +27,7 @@ public class StatisticReportRolesTest extends BaseSetings{
         @DisplayName("Открыть отчет по ролям")
         public void t1RolesReport(){
             Adm adm =new Adm();
-            adm.logIn(login, password);
+            adm.logIn(LOGIN, PASSWORD);
             adm.statisticRolesReport().open();
             adm.statisticRolesReport().openRoles();
             adm.logOut();
@@ -42,7 +39,7 @@ public class StatisticReportRolesTest extends BaseSetings{
         @DisplayName("Отчет по ролям, отфильтрованный по полю кем зарегистрирован")
         public void t2whoRegisterSearch() {
             Adm adm = new Adm();
-            adm.logIn(login, password);
+            adm.logIn(LOGIN, PASSWORD);
             adm.statisticRolesReport().open();
             adm.statisticRolesReport().openRoles();
             adm.statisticRolesReport().fillWhoRegister(whoRegister);
@@ -55,7 +52,7 @@ public class StatisticReportRolesTest extends BaseSetings{
         @DisplayName("Отчет по ролям, отфильтрованный по статусу")
         public void t3StatusSearch() {
             Adm adm = new Adm();
-            adm.logIn(login, password);
+            adm.logIn(LOGIN, PASSWORD);
             adm.statisticRolesReport().open();
             adm.statisticRolesReport().openRoles();
             adm.statisticRolesReport().chooseStatus(status);
@@ -68,7 +65,7 @@ public class StatisticReportRolesTest extends BaseSetings{
         @DisplayName("Отчет по ролям, отфильтрованный по дате регистрации")
         public void t4checkDateSearch() {
             Adm adm = new Adm();
-            adm.logIn(login, password);
+            adm.logIn(LOGIN, PASSWORD);
             adm.statisticRolesReport().open();
             adm.statisticRolesReport().openRoles();
             adm.statisticRolesReport().chooseRegisterDates(registerDateFrom, registerDateTo);
@@ -81,7 +78,7 @@ public class StatisticReportRolesTest extends BaseSetings{
         @DisplayName("Отчет по ролям, отфильтрованный по полю Подсистема/модуль")
         public void t5checkModuleSearch() {
             Adm adm = new Adm();
-            adm.logIn(login, password);
+            adm.logIn(LOGIN, PASSWORD);
             adm.statisticRolesReport().open();
             adm.statisticRolesReport().openRoles();
             adm.statisticRolesReport().chooseSearchModule(module);
@@ -94,7 +91,7 @@ public class StatisticReportRolesTest extends BaseSetings{
         @DisplayName("Отчет по ролям, отфильтрованный по Коду роли")
         public void t6checkRolesCode() {
             Adm adm = new Adm();
-            adm.logIn(login, password);
+            adm.logIn(LOGIN, PASSWORD);
             adm.statisticRolesReport().open();
             adm.statisticRolesReport().openRoles();
             adm.statisticRolesReport().chooseSearchModule(module);
@@ -108,7 +105,7 @@ public class StatisticReportRolesTest extends BaseSetings{
         @DisplayName("Отчет по ролям, отфильтрованный по периоду действия")
         public void t7checkValidityDates() {
             Adm adm = new Adm();
-            adm.logIn(login, password);
+            adm.logIn(LOGIN, PASSWORD);
             adm.statisticRolesReport().open();
             adm.statisticRolesReport().openRoles();
             adm.statisticRolesReport().chooseValidityDates(validityDateFrom, validityDateTo);
