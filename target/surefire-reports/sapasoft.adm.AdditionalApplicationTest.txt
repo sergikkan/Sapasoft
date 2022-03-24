@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+Test set: sapasoft.adm.AdditionalApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 46.028 s <<< FAILURE! - in sapasoft.adm.AdditionalApplicationTest
+sapasoft.adm.AdditionalApplicationTest.t1AdditionalApplication  Time elapsed: 45.349 s  <<< FAILURE!
+com.codeborne.selenide.ex.ElementNotFound: 
+Element not found {By.xpath: //span[contains(@title,"Реабилитация и банкротство")]}
+Expected: visible or transparent: visible or have css value opacity=0
+Screenshot: file:/H:/projects/Sapasoft/build/reports/tests/1644487901650.0.png
+Page source: file:/H:/projects/Sapasoft/build/reports/tests/1644487901650.0.html
+Timeout: 8 s.
+Caused by: NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(@title,"Реабилитация и банкротство")]"}
+	at sapasoft.adm.AdditionalApplicationTest.t1AdditionalApplication(AdditionalApplicationTest.java:28)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(@title,"Реабилитация и банкротство")]"}
+  (Session info: headless chrome=98.0.4758.82)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-TSK4QCV', ip: '192.168.1.116', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 98.0.4758.82, chrome: {chromedriverVersion: 98.0.4758.80 (7f0488e8ba0d8..., userDataDir: C:\Users\SERHII~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:54725}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 034d4f16e14ce84ce9ec4b80dfb167b8
+*** Element info: {Using=xpath, value=//span[contains(@title,"Реабилитация и банкротство")]}
+	at sapasoft.adm.AdditionalApplicationTest.t1AdditionalApplication(AdditionalApplicationTest.java:28)
+
